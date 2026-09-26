@@ -1,6 +1,6 @@
 # BoltMind
 
-Public site: https://herozero-assistant.github.io/boltmind/
+Public site: https://herozero-assistant.github.io/hero-zero-assistant/
 
 Static product site for Hero Zero automation. Real program screenshots in Portuguese, English, Polish and Greek; German and French use English screenshots. All six site languages have their own copy.
 
