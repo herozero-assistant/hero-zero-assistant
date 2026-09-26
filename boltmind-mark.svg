@@ -1,16 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">BoltMind</title>
-  <desc id="desc">Minimal symbol of an intelligent spark in motion</desc>
+  <desc id="desc">Minimal flow mark for focused automation</desc>
   <defs>
-    <linearGradient id="signal" x1="16" y1="49" x2="47" y2="14" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0b61d8"/>
-      <stop offset="1" stop-color="#42c7f6"/>
+    <linearGradient id="flowA" x1="10" y1="48" x2="49" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1169db"/>
+      <stop offset="1" stop-color="#48cdf6"/>
+    </linearGradient>
+    <linearGradient id="flowB" x1="42" y1="54" x2="18" y2="13" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0c4fae"/>
+      <stop offset="1" stop-color="#208be8"/>
     </linearGradient>
   </defs>
-  <path d="M18.2 45.4A23.4 23.4 0 0 1 22.9 13.3" fill="none" stroke="#142139" stroke-width="5.4" stroke-linecap="round"/>
-  <path d="M41.1 12.7A23.4 23.4 0 0 1 45.8 44.8" fill="none" stroke="url(#signal)" stroke-width="5.4" stroke-linecap="round"/>
-  <path d="M34.8 7.7 17.6 34.4h13l-3.6 21.9 19.4-28.2H33.2l1.6-20.4Z" fill="#142139"/>
-  <path d="m35.5 15.8-9.2 15.6h10.2l-2 11.5 7.3-11.7h-10l3.7-15.6Z" fill="url(#signal)"/>
-  <circle cx="18.1" cy="45.4" r="3.6" fill="#142139"/>
-  <circle cx="45.9" cy="44.8" r="3.6" fill="#42c7f6"/>
+  <path d="M31.8 7.2C46.1 7.2 56.9 18.2 56.9 31.8c0 5.3-1.7 10.1-4.8 14.1" fill="none" stroke="#142139" stroke-width="8.2" stroke-linecap="round"/>
+  <path d="M52.1 45.9C47.5 51.8 40.3 55.7 32.1 55.7c-14 0-25.4-10.7-25.4-24.1 0-4.9 1.5-9.5 4.1-13.3" fill="none" stroke="url(#flowA)" stroke-width="8.2" stroke-linecap="round"/>
+  <path d="M10.8 18.3C15.6 11.7 23.5 7.7 32.1 7.7c5.4 0 10.3 1.5 14.4 4.3" fill="none" stroke="url(#flowB)" stroke-width="8.2" stroke-linecap="round"/>
+  <path d="M46.4 12.2C51.5 16.8 54.6 23.4 54.6 30.8c0 4.3-1.1 8.2-3.2 11.6" fill="none" stroke="#5bd7fb" stroke-width="2" stroke-linecap="round" opacity=".92"/>
+  <circle cx="32" cy="31.8" r="6.2" fill="#fff"/>
+  <circle cx="32" cy="31.8" r="3.15" fill="#142139"/>
+  <circle cx="32" cy="31.8" r="1.35" fill="#48cdf6"/>
 </svg>
