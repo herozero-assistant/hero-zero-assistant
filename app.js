@@ -27,6 +27,61 @@ q('#open-features').addEventListener('click',()=>q('#features-dialog').showModal
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
 document.querySelectorAll('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();});});
 document.querySelectorAll('.zoom-shot').forEach(b=>b.addEventListener('click',()=>{const image=b.querySelector('img');q('#zoom-image').src=image.src;q('#zoom-image').alt=image.alt;q('#image-dialog').showModal();}));
+const checkoutLinks={
+  hotmart:'https://pay.hotmart.com/J107735600B?bid=1790177595394',
+  payhip:'https://payhip.com/b/C5Js0'
+};
+const checkoutText={
+  pt:{hotmart:'Comprar pela Hotmart',payhip:'Comprar pela Payhip',choose:'Escolha onde deseja concluir a compra',note:'Você será direcionado ao checkout seguro da plataforma escolhida.',details:'Ver opções de compra'},
+  en:{hotmart:'Buy through Hotmart',payhip:'Buy through Payhip',choose:'Choose where you would like to complete your purchase',note:'You will be taken to the secure checkout of your chosen platform.',details:'See purchase options'},
+  pl:{hotmart:'Kup przez Hotmart',payhip:'Kup przez Payhip',choose:'Wybierz, gdzie chcesz sfinalizować zakup',note:'Zostaniesz przekierowany do bezpiecznej płatności wybranej platformy.',details:'Zobacz opcje zakupu'},
+  el:{hotmart:'Αγορά μέσω Hotmart',payhip:'Αγορά μέσω Payhip',choose:'Επιλέξτε πού θέλετε να ολοκληρώσετε την αγορά',note:'Θα μεταφερθείτε στην ασφαλή πληρωμή της πλατφόρμας που επιλέξατε.',details:'Δείτε επιλογές αγοράς'},
+  de:{hotmart:'Über Hotmart kaufen',payhip:'Über Payhip kaufen',choose:'Wähle, wo du den Kauf abschließen möchtest',note:'Du wirst zum sicheren Checkout der gewählten Plattform weitergeleitet.',details:'Kaufoptionen ansehen'},
+  fr:{hotmart:'Acheter via Hotmart',payhip:'Acheter via Payhip',choose:'Choisissez où finaliser votre achat',note:'Vous serez redirigé vers le paiement sécurisé de la plateforme choisie.',details:'Voir les options d’achat'}
+};
+function makeCheckoutLink(provider,label){
+ const link=document.createElement('a');
+ link.className='button checkout-link checkout-'+provider;
+ link.href=checkoutLinks[provider];link.target='_blank';link.rel='noopener';
+ const logo=document.createElement('img');logo.src='assets/'+provider+'-logo.svg';logo.alt=provider==='hotmart'?'Hotmart':'Payhip';
+ const text=element('span',label,'checkout-link-text');
+ const arrow=element('span','↗','checkout-arrow');arrow.setAttribute('aria-hidden','true');
+ link.append(logo,text,arrow);return link;
+}
+function setCheckoutLink(link,provider,label){
+ const replacement=makeCheckoutLink(provider,label);
+ replacement.classList.add('purchase');
+ link.replaceWith(replacement);
+ return replacement;
+}
+function renderCheckoutOptions(){
+ const copy=checkoutText[lang]||checkoutText.pt;
+ const hero=q('.hero-actions');
+ let hotmart=hero.querySelector('.purchase');
+ if(hotmart) hotmart=setCheckoutLink(hotmart,'hotmart',copy.hotmart);
+ let payhip=hero.querySelector('.checkout-payhip');
+ if(!payhip){payhip=makeCheckoutLink('payhip',copy.payhip);hero.insertBefore(payhip,hero.querySelector('.button-discord'));}
+ else {const fresh=makeCheckoutLink('payhip',copy.payhip);payhip.replaceWith(fresh);payhip=fresh;}
+ const priceCard=q('.price-card');
+ let choice=priceCard.querySelector('.checkout-choice');
+ if(!choice){
+   const old=priceCard.querySelector('.purchase');
+   choice=element('div',undefined,'checkout-choice');
+   old.replaceWith(choice);
+   choice.append(element('p',copy.choose,'checkout-heading'),makeCheckoutLink('hotmart',copy.hotmart),makeCheckoutLink('payhip',copy.payhip));
+ }else{
+   choice.querySelector('.checkout-heading').textContent=copy.choose;
+   const oldHotmart=choice.querySelector('.checkout-hotmart');const oldPayhip=choice.querySelector('.checkout-payhip');
+   oldHotmart.replaceWith(makeCheckoutLink('hotmart',copy.hotmart));
+   oldPayhip.replaceWith(makeCheckoutLink('payhip',copy.payhip));
+ }
+ const paymentNote=priceCard.querySelector('.payment-note');if(paymentNote)paymentNote.textContent=copy.note;
+ const dialog=q('#features-dialog');const dialogPurchase=dialog.querySelector('.purchase');
+ if(dialogPurchase){
+   dialogPurchase.className='button button-secondary checkout-details';dialogPurchase.href='#preco';dialogPurchase.removeAttribute('target');dialogPurchase.removeAttribute('rel');dialogPurchase.removeAttribute('data-t');dialogPurchase.textContent=copy.details;
+ }
+}
+document.addEventListener('boltmind:language',renderCheckoutOptions);
 render();
 trackVisit();
 fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.amount===147&&data.date&&['BRL','USD','EUR','PLN'].every(c=>Number.isFinite(data.rates[c])&&data.rates[c]>0)){pricing=data;showPrice();}}).catch(()=>{});
