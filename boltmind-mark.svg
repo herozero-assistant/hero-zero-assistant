@@ -1,21 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">BoltMind</title>
-  <desc id="desc">Minimal flow mark for focused automation</desc>
+  <desc id="desc">Minimal circular flow for BoltMind</desc>
   <defs>
-    <linearGradient id="flowA" x1="10" y1="48" x2="49" y2="12" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1169db"/>
-      <stop offset="1" stop-color="#48cdf6"/>
+    <linearGradient id="navyFlow" x1="30" y1="30" x2="48" y2="7" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#142139"/>
+      <stop offset="1" stop-color="#27466b"/>
     </linearGradient>
-    <linearGradient id="flowB" x1="42" y1="54" x2="18" y2="13" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0c4fae"/>
-      <stop offset="1" stop-color="#208be8"/>
+    <linearGradient id="blueFlow" x1="20" y1="45" x2="50" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0c5fcf"/>
+      <stop offset="1" stop-color="#2699ec"/>
+    </linearGradient>
+    <linearGradient id="lightFlow" x1="8" y1="35" x2="36" y2="51" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#35c7ef"/>
+      <stop offset="1" stop-color="#0a76d7"/>
     </linearGradient>
   </defs>
-  <path d="M31.8 7.2C46.1 7.2 56.9 18.2 56.9 31.8c0 5.3-1.7 10.1-4.8 14.1" fill="none" stroke="#142139" stroke-width="8.2" stroke-linecap="round"/>
-  <path d="M52.1 45.9C47.5 51.8 40.3 55.7 32.1 55.7c-14 0-25.4-10.7-25.4-24.1 0-4.9 1.5-9.5 4.1-13.3" fill="none" stroke="url(#flowA)" stroke-width="8.2" stroke-linecap="round"/>
-  <path d="M10.8 18.3C15.6 11.7 23.5 7.7 32.1 7.7c5.4 0 10.3 1.5 14.4 4.3" fill="none" stroke="url(#flowB)" stroke-width="8.2" stroke-linecap="round"/>
-  <path d="M46.4 12.2C51.5 16.8 54.6 23.4 54.6 30.8c0 4.3-1.1 8.2-3.2 11.6" fill="none" stroke="#5bd7fb" stroke-width="2" stroke-linecap="round" opacity=".92"/>
-  <circle cx="32" cy="31.8" r="6.2" fill="#fff"/>
-  <circle cx="32" cy="31.8" r="3.15" fill="#142139"/>
-  <circle cx="32" cy="31.8" r="1.35" fill="#48cdf6"/>
+  <path d="M32 32C26.5 21.2 29.5 11.6 42 6.4c12.9 7.6 16.8 22 11.1 34C47.2 33.2 39.7 30.5 32 32Z" fill="url(#navyFlow)"/>
+  <path d="M32 32C26.5 21.2 29.5 11.6 42 6.4c12.9 7.6 16.8 22 11.1 34C47.2 33.2 39.7 30.5 32 32Z" fill="url(#blueFlow)" transform="rotate(120 32 32)"/>
+  <path d="M32 32C26.5 21.2 29.5 11.6 42 6.4c12.9 7.6 16.8 22 11.1 34C47.2 33.2 39.7 30.5 32 32Z" fill="url(#lightFlow)" transform="rotate(240 32 32)"/>
+  <circle cx="32" cy="32" r="7.2" fill="#fff"/>
+  <circle cx="32" cy="32" r="3" fill="#142139"/>
+  <circle cx="32" cy="32" r="1.15" fill="#48cdf6"/>
 </svg>
