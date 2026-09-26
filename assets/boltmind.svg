@@ -1,28 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">BoltMind</title>
-  <desc id="desc">A connected orbit around a focused core</desc>
+  <desc id="desc">Minimal symbol of an intelligent spark in motion</desc>
   <defs>
-    <radialGradient id="field" cx="28%" cy="22%" r="85%">
-      <stop stop-color="#213a5b"/>
-      <stop offset="1" stop-color="#0d1d33"/>
-    </radialGradient>
-    <linearGradient id="orbit" x1="10" y1="44" x2="55" y2="33" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#e98920"/>
-      <stop offset=".52" stop-color="#ffbf4e"/>
-      <stop offset="1" stop-color="#f49a24"/>
+    <linearGradient id="signal" x1="16" y1="49" x2="47" y2="14" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b61d8"/>
+      <stop offset="1" stop-color="#42c7f6"/>
     </linearGradient>
   </defs>
-  <circle cx="32" cy="32" r="28.5" fill="url(#field)"/>
-  <circle cx="32" cy="32" r="28.5" fill="none" stroke="#9fb4cc" stroke-width="1.2"/>
-  <g fill="none" stroke="#d9e8f4" stroke-linecap="round">
-    <path d="M32 4.6C18.7 14.1 18.7 49.9 32 59.4" stroke-width="2.35" opacity=".95"/>
-    <path d="M32 4.6C45.3 14.1 45.3 49.9 32 59.4" stroke-width="2.35" opacity=".95"/>
-    <path d="M8.4 23.3C21.1 29.3 42.9 29.3 55.6 23.3" stroke-width="2.35" opacity=".82"/>
-    <path d="M7.1 33.1C19.3 36.3 44.7 36.3 56.9 33.1" stroke-width="2.35" opacity=".82"/>
-  </g>
-  <path d="M7.6 42.8C17.4 37.1 24.7 36.8 31.6 41.8C39.1 47.2 47.1 47.5 56.5 39.5" fill="none" stroke="#071426" stroke-width="9.2" stroke-linecap="round"/>
-  <path d="M7.6 42.8C17.4 37.1 24.7 36.8 31.6 41.8C39.1 47.2 47.1 47.5 56.5 39.5" fill="none" stroke="url(#orbit)" stroke-width="6.2" stroke-linecap="round"/>
-  <path d="M10.2 41.8C18.4 38.1 24.5 38.4 30.4 42.6" fill="none" stroke="#ffe2a4" stroke-width="1.25" stroke-linecap="round" opacity=".9"/>
-  <circle cx="31.8" cy="41.9" r="3.3" fill="#fff4d8"/>
-  <circle cx="31.8" cy="41.9" r="1.3" fill="#e98920"/>
+  <path d="M18.2 45.4A23.4 23.4 0 0 1 22.9 13.3" fill="none" stroke="#142139" stroke-width="5.4" stroke-linecap="round"/>
+  <path d="M41.1 12.7A23.4 23.4 0 0 1 45.8 44.8" fill="none" stroke="url(#signal)" stroke-width="5.4" stroke-linecap="round"/>
+  <path d="M34.8 7.7 17.6 34.4h13l-3.6 21.9 19.4-28.2H33.2l1.6-20.4Z" fill="#142139"/>
+  <path d="m35.5 15.8-9.2 15.6h10.2l-2 11.5 7.3-11.7h-10l3.7-15.6Z" fill="url(#signal)"/>
+  <circle cx="18.1" cy="45.4" r="3.6" fill="#142139"/>
+  <circle cx="45.9" cy="44.8" r="3.6" fill="#42c7f6"/>
 </svg>
