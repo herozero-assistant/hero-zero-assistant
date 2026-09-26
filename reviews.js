@@ -4,6 +4,7 @@
   const root = document.querySelector('#review-list');
   if (!root) return;
   let items = [];
+  let state = "loading";
 
   function copy() {
     const lang = document.documentElement.lang === 'pt-BR' ? 'pt' : document.documentElement.lang.slice(0, 2);
@@ -27,13 +28,16 @@
     article.append(header, comment);
     return article;
   }
+  function loadStateKey() {
+    return state === "loading" ? "reviewsLoading" : state === "error" ? "reviewsEmpty" : "reviewsNone";
+  }
   function render() {
     const t = copy();
     root.replaceChildren();
     if (!items.length) {
       const state = document.createElement('p');
       state.className = 'review-state';
-      state.textContent = t.reviewsEmpty;
+      state.textContent = t[loadStateKey()];
       root.append(state);
       return;
     }
@@ -42,19 +46,22 @@
   function load() {
     const callback = `boltmindReviews_${Date.now()}`;
     const script = document.createElement('script');
+    let settled = false;
+    let timer;
     const finish = data => {
-      items = Array.isArray(data && data.reviews) ? data.reviews : [];
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      state = data && data.ok === true && Array.isArray(data.reviews) ? 'loaded' : 'error';
+      items = state === 'loaded' ? data.reviews : [];
       render();
-      delete window[callback];
+      // Keep a no-op callback for a response arriving after the timeout.
+      window[callback] = () => {};
       script.remove();
     };
     window[callback] = finish;
-    script.onerror = () => {
-      items = [];
-      render();
-      delete window[callback];
-      script.remove();
-    };
+    script.onerror = () => finish(null);
+    timer = setTimeout(() => finish(null), 15000);
     script.src = `${REVIEW_API}?callback=${encodeURIComponent(callback)}`;
     document.body.append(script);
   }
