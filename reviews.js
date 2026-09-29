@@ -22,12 +22,12 @@
     fr:{title:'Partagez votre expérience',lead:'Votre nom, votre avis et votre note seront publiés pour la communauté.',name:'Votre nom',namePlaceholder:'Comment souhaitez-vous apparaître ?',rating:'Votre note',comment:'Votre avis',commentPlaceholder:'Écrivez votre expérience avec BoltMind...',submit:'Publier l’avis',sending:'Envoi de votre avis...',sent:'Merci ! Votre avis a été envoyé à la communauté.',error:'Indiquez votre nom, votre avis et choisissez une note de 1 à 5.'}
   };
   const carouselCopy = {
-    pt:{previous:'Avaliação anterior',next:'Próxima avaliação',position:'Avaliação {current} de {total}',all:'Ver todas as avaliações na planilha'},
-    en:{previous:'Previous review',next:'Next review',position:'Review {current} of {total}',all:'See all reviews in the spreadsheet'},
-    pl:{previous:'Poprzednia opinia',next:'Następna opinia',position:'Opinia {current} z {total}',all:'Zobacz wszystkie opinie w arkuszu'},
-    el:{previous:'Προηγούμενη αξιολόγηση',next:'Επόμενη αξιολόγηση',position:'Αξιολόγηση {current} από {total}',all:'Δείτε όλες τις αξιολογήσεις στο υπολογιστικό φύλλο'},
-    de:{previous:'Vorherige Bewertung',next:'Nächste Bewertung',position:'Bewertung {current} von {total}',all:'Alle Bewertungen in der Tabelle ansehen'},
-    fr:{previous:'Avis précédent',next:'Avis suivant',position:'Avis {current} sur {total}',all:'Voir tous les avis dans le tableur'}
+    pt:{previous:'Avaliação anterior',next:'Próxima avaliação',position:'Avaliação {current} de {total}'},
+    en:{previous:'Previous review',next:'Next review',position:'Review {current} of {total}'},
+    pl:{previous:'Poprzednia opinia',next:'Następna opinia',position:'Opinia {current} z {total}'},
+    el:{previous:'Προηγούμενη αξιολόγηση',next:'Επόμενη αξιολόγηση',position:'Αξιολόγηση {current} από {total}'},
+    de:{previous:'Vorherige Bewertung',next:'Nächste Bewertung',position:'Bewertung {current} von {total}'},
+    fr:{previous:'Avis précédent',next:'Avis suivant',position:'Avis {current} sur {total}'}
   };
 
   function copy() {
@@ -154,11 +154,7 @@
     script.src = `${REVIEW_API}?callback=${encodeURIComponent(callback)}`;
     document.body.append(script);
   }
-  document.addEventListener('boltmind:language', () => { render(); renderForm(); renderCarouselLink(); });
-  function renderCarouselLink() {
-    const link = document.querySelector('#review-sheet-link');
-    if (link) link.textContent = carouselText().all + ' ↗';
-  }
+  document.addEventListener('boltmind:language', () => { render(); renderForm(); });
   if (previous && next) {
     previous.addEventListener('click', () => { changeReview(-1); startRotation(); });
     next.addEventListener('click', () => { changeReview(1); startRotation(); });
@@ -202,6 +198,5 @@
     });
     renderForm();
   }
-  renderCarouselLink();
   load();
 })();
