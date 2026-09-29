@@ -1,1 +1,6 @@
-{"base":"BRL","amount":147,"date":"2026-09-25","source":"https://api.frankfurter.dev/v1/latest?base=BRL&symbols=USD,EUR,PLN","rates":{"BRL":1,"USD":0.19297,"EUR":0.16923,"PLN":0.73984}}
+{
+  "BRL": 279,
+  "USD": 54.99,
+  "hotmart": "https://pay.hotmart.com/J107735600B?bid=1790177595394",
+  "payhip": "https://payhip.com/b/C5Js0"
+}

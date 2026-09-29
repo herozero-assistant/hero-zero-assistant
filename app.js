@@ -3,18 +3,75 @@
 const VISIT_API='https://script.google.com/macros/s/AKfycbwMpL8V_pOIsrP1BnEhPX7HkYhUQf04gm7WVGTMTGaTWYQUxdriC7m5RvHgQyGjdgqz/exec';
 const translations=window.BOLTMIND_I18N;
 const locales={pt:'pt-BR',en:'en-US',pl:'pl-PL',el:'el-GR',de:'de-DE',fr:'fr-FR'};
-const currencies={pt:'BRL',en:'USD',pl:'PLN',el:'EUR',de:'EUR',fr:'EUR'};
 let stored;try{stored=localStorage.getItem('boltmind-language');}catch{}
-let lang=translations[stored]?stored:'pt',tab=0;
-let pricing={amount:147,date:'2026-09-25',rates:{BRL:1,USD:0.19297,EUR:0.16923,PLN:0.73984}};
+let lang=translations[stored]?stored:'pt',tab=0,platform='desktop';
+let pricing={BRL:279,USD:54.99};
+const desktopShots=['geral','ranking','missoes','missoes-especiais','treinos','duelos','esconderijo','eventos','diagnostico'];
+const androidShots=['overview','ranking','missions','special','training','duels','hideout','events','inventory','automation','history'];
 const q=s=>document.querySelector(s);
 function element(tag,text,cls){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;}
-function showPrice(){const t=translations[lang],currency=currencies[lang];const price=new Intl.NumberFormat(locales[lang],{style:'currency',currency}).format(pricing.amount*pricing.rates[currency]);q('#price-value').textContent=(currency==='BRL'?'':'\u2248 ')+price;document.querySelectorAll('.price-inline').forEach(el=>el.textContent=(currency==='BRL'?'':'\u2248 ')+price);document.querySelectorAll('.conversion-note').forEach(el=>el.textContent=currency==='BRL'?t.baseNote:t.estimated+' ('+new Intl.DateTimeFormat(locales[lang],{timeZone:'UTC'}).format(new Date(pricing.date+'T12:00:00Z'))+')');}
-function shotPath(i){return (['pt','en','pl','el'].includes(lang)?lang:'en')+'/aba_'+(i+1)+'.jpg?v=20260925-privacy1';}
-function changeTab(i){tab=i;const img=q('#gallery-image');img.src=shotPath(i);img.alt=window.BOLTMIND_TABS[lang][i];document.querySelectorAll('#screenshot-tabs button').forEach((b,n)=>{b.setAttribute('aria-selected',String(n===i));b.tabIndex=n===i?0:-1;});}
-function render(){const t=translations[lang];document.documentElement.lang=locales[lang];document.title='BoltMind \u2014 Hero Zero | '+t.lifetime;q('meta[name="description"]').content=t.lead;document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t[el.dataset.t]||el.dataset.t);q('#language').value=lang;showPrice();
- for(const selector of ['#feature-grid','#feature-details']){const root=q(selector);root.replaceChildren();window.BOLTMIND_FEATURES[lang].forEach(([title,body],i)=>{const article=element('article',undefined,'feature');article.append(element('span',String(i+1).padStart(2,'0'),'feature-number'),element('h3',title),element('p',body));root.append(article);});}
- const tabs=q('#screenshot-tabs');tabs.replaceChildren();window.BOLTMIND_TABS[lang].forEach((label,i)=>{const button=element('button',label);button.type='button';button.id='screen-tab-'+i;button.setAttribute('role','tab');button.setAttribute('aria-controls','gallery-image');button.addEventListener('click',()=>changeTab(i));button.addEventListener('keydown',e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?8:(i+(e.key==='ArrowRight'?1:8))%9;changeTab(next);tabs.children[next].focus();});tabs.append(button);});changeTab(tab);const heroShot=q('#hero-shot');if(heroShot){heroShot.src=shotPath(0);heroShot.alt=t.real+' \u2014 '+window.BOLTMIND_TABS[lang][0];heroShot.parentElement.setAttribute('aria-label',t.preview);}q('#gallery-image').parentElement.setAttribute('aria-label',t.preview);
+function showPrice(){
+ const t=window.BOLTMIND_PLATFORM_COPY[lang];
+ const currency=lang==='pt'?'BRL':'USD';
+ const amount=new Intl.NumberFormat(locales[lang],{style:'currency',currency}).format(pricing[currency]);
+ q('#price-value').textContent=amount;
+ document.querySelectorAll('.price-inline').forEach(el=>el.textContent=amount);
+ document.querySelectorAll('.conversion-note').forEach(el=>el.textContent=t.priceNote);
+ document.querySelectorAll('.checkout-hotmart .checkout-price').forEach(el=>el.textContent=t.hotmartPrice);
+ document.querySelectorAll('.checkout-payhip .checkout-price').forEach(el=>el.textContent=t.payhipPrice);
+}
+function galleryTabs(){return platform==='desktop'?window.BOLTMIND_TABS[lang]:window.BOLTMIND_PLATFORM_COPY[lang].mobileTabs;}
+function shotPath(i){const names=platform==='desktop'?desktopShots:androidShots;const ext=platform==='desktop'?'png':'jpg';return 'assets/screenshots/'+platform+'/'+names[i]+'.'+ext+'?v=20260929';}
+function changeTab(i){
+ tab=i;
+ const img=q('#gallery-image');img.src=shotPath(i);img.alt=(platform==='desktop'?window.BOLTMIND_PLATFORM_COPY[lang].pc:window.BOLTMIND_PLATFORM_COPY[lang].android)+' - '+galleryTabs()[i];
+ img.width=platform==='desktop'?1296:1600;img.height=platform==='desktop'?966:738;
+ q('#gallery-caption').textContent=platform==='android'?window.BOLTMIND_PLATFORM_COPY[lang].mobileCaption:window.BOLTMIND_PLATFORM_COPY[lang].desktopCaption;
+ document.querySelectorAll('#screenshot-tabs button').forEach((b,n)=>{b.setAttribute('aria-selected',String(n===i));b.tabIndex=n===i?0:-1;});
+}
+function renderGallery(){
+ const copy=window.BOLTMIND_PLATFORM_COPY[lang];
+ const chooser=q('#platform-tabs');chooser.replaceChildren();
+ chooser.setAttribute('aria-label',translations[lang].preview);
+ for(const [key,label] of [['desktop',copy.pc],['android',copy.android]]){
+  const button=element('button',label);button.type='button';button.setAttribute('aria-pressed',String(key===platform));
+  if(key==='android')button.append(element('span',copy.new,'new-badge'));
+  button.addEventListener('click',()=>{platform=key;tab=0;renderGallery();});chooser.append(button);
+ }
+ const tabs=q('#screenshot-tabs');tabs.replaceChildren();const labels=galleryTabs();
+ labels.forEach((label,i)=>{
+  const button=element('button',label);button.type='button';button.id='screen-tab-'+i;
+  button.setAttribute('role','tab');button.setAttribute('aria-controls','gallery-image');
+  button.addEventListener('click',()=>changeTab(i));
+  button.addEventListener('keydown',e=>{
+   if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;
+   e.preventDefault();
+   const next=e.key==='Home'?0:e.key==='End'?labels.length-1:(i+(e.key==='ArrowRight'?1:labels.length-1))%labels.length;
+   changeTab(next);tabs.children[next].focus();
+  });
+  tabs.append(button);
+ });
+ changeTab(Math.min(tab,labels.length-1));
+ q('#gallery-image').parentElement.setAttribute('aria-label',translations[lang].preview);
+}
+function render(){
+ const t=translations[lang],copy=window.BOLTMIND_PLATFORM_COPY[lang];
+ document.documentElement.lang=locales[lang];
+ document.title='BoltMind - Hero Zero | '+t.lifetime;
+ q('meta[name="description"]').content=t.lead+' '+copy.platformLifetime;
+ document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t[el.dataset.t]||el.dataset.t);
+ document.querySelectorAll('[data-platform]').forEach(el=>el.textContent=copy[el.dataset.platform]||'');
+ q('#language').value=lang;
+ showPrice();
+ for(const selector of ['#feature-grid','#feature-details']){
+  const root=q(selector);root.replaceChildren();
+  window.BOLTMIND_FEATURES[lang].forEach(([title,body],i)=>{
+   const article=element('article',undefined,'feature');
+   article.append(element('span',String(i+1).padStart(2,'0'),'feature-number'),element('h3',title),element('p',body));
+   root.append(article);
+  });
+ }
+ renderGallery();
  const faq=q('#faq-list');faq.replaceChildren();window.BOLTMIND_FAQ[lang].forEach(([question,answer])=>{const detail=element('details');detail.append(element('summary',question),element('p',answer));faq.append(detail);});document.dispatchEvent(new CustomEvent('boltmind:language',{detail:{lang}}));
 }
 function trackVisit(){
@@ -45,8 +102,10 @@ function makeCheckoutLink(provider,label){
  link.href=checkoutLinks[provider];link.target='_blank';link.rel='noopener';
  const logo=document.createElement('img');logo.src='assets/'+provider+'-logo.svg';logo.alt=provider==='hotmart'?'Hotmart':'Payhip';
  const text=element('span',label,'checkout-link-text');
+ const price=element('small',window.BOLTMIND_PLATFORM_COPY[lang][provider+'Price'],'checkout-price');
  const arrow=element('span','↗','checkout-arrow');arrow.setAttribute('aria-hidden','true');
- link.append(logo,text,arrow);return link;
+ const copy=element('span',undefined,'checkout-link-copy');copy.append(text,price);
+ link.append(logo,copy,arrow);return link;
 }
 function setCheckoutLink(link,provider,label){
  const replacement=makeCheckoutLink(provider,label);
@@ -62,6 +121,7 @@ function renderCheckoutOptions(){
  let payhip=hero.querySelector('.checkout-payhip');
  if(!payhip){payhip=makeCheckoutLink('payhip',copy.payhip);hero.insertBefore(payhip,hero.querySelector('.button-discord'));}
  else {const fresh=makeCheckoutLink('payhip',copy.payhip);payhip.replaceWith(fresh);payhip=fresh;}
+ if(lang==='pt')hero.insertBefore(hotmart,payhip);else hero.insertBefore(payhip,hotmart);
  const priceCard=q('.price-card');
  let choice=priceCard.querySelector('.checkout-choice');
  if(!choice){
@@ -75,6 +135,9 @@ function renderCheckoutOptions(){
    oldHotmart.replaceWith(makeCheckoutLink('hotmart',copy.hotmart));
    oldPayhip.replaceWith(makeCheckoutLink('payhip',copy.payhip));
  }
+ const choiceHotmart=choice.querySelector('.checkout-hotmart');
+ const choicePayhip=choice.querySelector('.checkout-payhip');
+ if(lang==='pt')choice.insertBefore(choiceHotmart,choicePayhip);else choice.insertBefore(choicePayhip,choiceHotmart);
  const paymentNote=priceCard.querySelector('.payment-note');if(paymentNote)paymentNote.textContent=copy.note;
  const dialog=q('#features-dialog');const dialogPurchase=dialog.querySelector('.purchase');
  if(dialogPurchase){
@@ -84,5 +147,5 @@ function renderCheckoutOptions(){
 document.addEventListener('boltmind:language',renderCheckoutOptions);
 render();
 trackVisit();
-fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.amount===147&&data.date&&['BRL','USD','EUR','PLN'].every(c=>Number.isFinite(data.rates[c])&&data.rates[c]>0)){pricing=data;showPrice();}}).catch(()=>{});
+fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.BRL===279&&data.USD===54.99){pricing=data;showPrice();}}).catch(()=>{});
 })();

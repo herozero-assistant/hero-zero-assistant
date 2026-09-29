@@ -24,3 +24,23 @@
 
 /* Clear checkout choices, each linked directly to its own platform. */
 .checkout-link{min-height:52px;padding:10px 15px;border:1px solid #cdd8e6;background:#fff;color:#142139;box-shadow:0 5px 15px #18315610}.checkout-link:hover{background:#f7faff;box-shadow:0 8px 22px #1831561b}.checkout-link img{display:block;width:auto;height:25px;max-width:104px}.checkout-link-text{font-size:14px;white-space:nowrap}.checkout-arrow{margin-left:1px;color:#607088;font-size:15px}.checkout-hotmart{border-color:#f7b59d}.checkout-hotmart:hover{background:#fff8f5}.checkout-payhip{border-color:#c9d6ff}.checkout-payhip:hover{background:#f7f9ff}.hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:592px}.hero-actions .checkout-link{width:100%;min-width:0}.hero-actions .button-discord{grid-column:1/-1;width:calc(50% - 6px);justify-self:center}.price-card .checkout-choice{display:grid;gap:10px;margin:20px 0 12px}.checkout-heading{margin:0!important;color:#142139!important;font-weight:800;font-size:14px;text-align:left}.price-card .checkout-link{width:100%;justify-content:flex-start}.price-card .checkout-arrow{margin-left:auto}.price-card .payment-note{margin-top:14px}.checkout-details{margin-top:8px}.checkout-details:hover{color:#095bca}@media(max-width:720px){.hero-actions{grid-template-columns:1fr}.hero-actions .button-discord{grid-column:auto;width:100%;justify-self:stretch}.checkout-link{justify-content:flex-start}.checkout-link .checkout-arrow{margin-left:auto}}
+
+/* Current desktop and Android product previews. */
+.android-announcement{display:flex;align-items:center;gap:10px;max-width:590px;margin:20px 0 8px;padding:14px 16px;border:1px solid #b7d5ff;border-radius:12px;background:#edf5ff;color:#173965;text-decoration:none;font-size:13px;line-height:1.45}
+.android-announcement strong{font-weight:700}.android-announcement>span:last-child{margin-left:auto;font-size:19px}
+.new-badge{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:3px 7px;border-radius:5px;background:#e0edff;color:#075dcb;font-size:10px;font-weight:800;letter-spacing:.06em}
+.android-announcement .new-badge{background:#1676eb;color:white}
+.platform-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 19px}
+.platform-tabs button{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:10px 18px;border:1px solid #cdd9e9;border-radius:10px;background:#fff;color:#39516f;font-weight:800}
+.platform-tabs button[aria-pressed=true]{border-color:#1676eb;background:#eaf3ff;color:#0d5fc7;box-shadow:0 0 0 2px #1676eb1c}
+.platform-tabs button:hover{border-color:#1676eb}
+.gallery-caption{max-width:900px;margin:13px auto 0;color:var(--muted);font-size:13px;text-align:center}
+.platform-lifetime{margin:-12px 0 15px!important;font-size:13px;color:#425a7a!important}
+.checkout-link{gap:8px;padding:9px 11px}
+.checkout-link img{height:22px;max-width:78px;flex:none}
+.checkout-link-copy{display:flex;flex:1;flex-direction:column;min-width:0;line-height:1.25}
+.checkout-link .checkout-link-text{font-size:12px;white-space:normal}
+.checkout-link .checkout-price{color:#355274;font-size:12px;font-weight:800;white-space:nowrap}
+.checkout-link .checkout-arrow{margin-left:0;flex:none}
+.price-card .checkout-link .checkout-arrow{margin-left:0}
+@media(max-width:720px){.android-announcement{align-items:flex-start}.platform-tabs{display:grid;grid-template-columns:1fr 1fr}.platform-tabs button{justify-content:center;padding:9px}.gallery-shot{padding:5px}.checkout-link img{height:25px;max-width:104px}.checkout-link .checkout-link-text{font-size:14px}}
