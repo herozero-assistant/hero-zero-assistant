@@ -6,7 +6,13 @@
   let items = [];
   let state = "loading";
   let selectedRating = 0;
+  let visibleReview = 0;
+  let rotation;
   const form = document.querySelector('#review-form');
+  const controls = document.querySelector('#review-controls');
+  const position = document.querySelector('#review-position');
+  const previous = document.querySelector('#review-prev');
+  const next = document.querySelector('#review-next');
   const formCopy = {
     pt:{title:'Conte sua experiência',lead:'Seu nome, comentário e nota serão publicados para a comunidade.',name:'Seu nome',namePlaceholder:'Como você quer aparecer?',rating:'Sua nota',comment:'Sua avaliação',commentPlaceholder:'Escreva sua experiência com o BoltMind...',submit:'Publicar avaliação',sending:'Enviando sua avaliação...',sent:'Obrigado! Sua avaliação foi enviada para a comunidade.',error:'Preencha seu nome, a avaliação e escolha uma nota de 1 a 5.'},
     en:{title:'Share your experience',lead:'Your name, comment and rating will be published for the community.',name:'Your name',namePlaceholder:'How should we show you?',rating:'Your rating',comment:'Your review',commentPlaceholder:'Write about your experience with BoltMind...',submit:'Publish review',sending:'Sending your review...',sent:'Thank you! Your review was sent to the community.',error:'Enter your name, your review, and choose a rating from 1 to 5.'},
@@ -14,6 +20,14 @@
     el:{title:'Μοιραστείτε την εμπειρία σας',lead:'Το όνομα, το σχόλιο και η βαθμολογία σας θα δημοσιευτούν στην κοινότητα.',name:'Το όνομά σας',namePlaceholder:'Πώς θέλετε να εμφανίζεστε;',rating:'Η βαθμολογία σας',comment:'Η αξιολόγησή σας',commentPlaceholder:'Γράψτε την εμπειρία σας με το BoltMind...',submit:'Δημοσίευση αξιολόγησης',sending:'Αποστολή αξιολόγησης...',sent:'Ευχαριστούμε! Η αξιολόγησή σας στάλθηκε στην κοινότητα.',error:'Συμπληρώστε το όνομα, την αξιολόγηση και επιλέξτε βαθμολογία από 1 έως 5.'},
     de:{title:'Teile deine Erfahrung',lead:'Dein Name, Kommentar und deine Bewertung werden für die Community veröffentlicht.',name:'Dein Name',namePlaceholder:'Wie sollen wir dich anzeigen?',rating:'Deine Bewertung',comment:'Deine Rezension',commentPlaceholder:'Schreibe über deine Erfahrung mit BoltMind...',submit:'Bewertung veröffentlichen',sending:'Deine Bewertung wird gesendet...',sent:'Danke! Deine Bewertung wurde an die Community gesendet.',error:'Gib deinen Namen und deine Bewertung ein und wähle 1 bis 5 Sterne.'},
     fr:{title:'Partagez votre expérience',lead:'Votre nom, votre avis et votre note seront publiés pour la communauté.',name:'Votre nom',namePlaceholder:'Comment souhaitez-vous apparaître ?',rating:'Votre note',comment:'Votre avis',commentPlaceholder:'Écrivez votre expérience avec BoltMind...',submit:'Publier l’avis',sending:'Envoi de votre avis...',sent:'Merci ! Votre avis a été envoyé à la communauté.',error:'Indiquez votre nom, votre avis et choisissez une note de 1 à 5.'}
+  };
+  const carouselCopy = {
+    pt:{previous:'Avaliação anterior',next:'Próxima avaliação',position:'Avaliação {current} de {total}',all:'Ver todas as avaliações na planilha'},
+    en:{previous:'Previous review',next:'Next review',position:'Review {current} of {total}',all:'See all reviews in the spreadsheet'},
+    pl:{previous:'Poprzednia opinia',next:'Następna opinia',position:'Opinia {current} z {total}',all:'Zobacz wszystkie opinie w arkuszu'},
+    el:{previous:'Προηγούμενη αξιολόγηση',next:'Επόμενη αξιολόγηση',position:'Αξιολόγηση {current} από {total}',all:'Δείτε όλες τις αξιολογήσεις στο υπολογιστικό φύλλο'},
+    de:{previous:'Vorherige Bewertung',next:'Nächste Bewertung',position:'Bewertung {current} von {total}',all:'Alle Bewertungen in der Tabelle ansehen'},
+    fr:{previous:'Avis précédent',next:'Avis suivant',position:'Avis {current} sur {total}',all:'Voir tous les avis dans le tableur'}
   };
 
   function copy() {
@@ -23,6 +37,10 @@
   function formText() {
     const lang = document.documentElement.lang === 'pt-BR' ? 'pt' : document.documentElement.lang.slice(0, 2);
     return formCopy[lang] || formCopy.pt;
+  }
+  function carouselText() {
+    const lang = document.documentElement.lang === 'pt-BR' ? 'pt' : document.documentElement.lang.slice(0, 2);
+    return carouselCopy[lang] || carouselCopy.pt;
   }
   function formStatus(message, kind = '') {
     const output = document.querySelector('#review-form-status');
@@ -78,6 +96,7 @@
   function render() {
     const t = copy();
     root.replaceChildren();
+    if (controls) controls.hidden = true;
     if (!items.length) {
       const state = document.createElement('p');
       state.className = 'review-state';
@@ -85,7 +104,31 @@
       root.append(state);
       return;
     }
-    items.forEach(review => root.append(card(review)));
+    visibleReview = ((visibleReview % items.length) + items.length) % items.length;
+    const current = card(items[visibleReview]);
+    current.classList.add('review-card-current');
+    root.append(current);
+    if (controls && position) {
+      const carousel = carouselText();
+      controls.hidden = items.length < 2;
+      previous.setAttribute('aria-label', carousel.previous);
+      next.setAttribute('aria-label', carousel.next);
+      position.textContent = carousel.position.replace('{current}', String(visibleReview + 1)).replace('{total}', String(items.length));
+    }
+  }
+  function changeReview(direction) {
+    if (items.length < 2) return;
+    visibleReview += direction;
+    render();
+  }
+  function stopRotation() {
+    if (rotation) clearInterval(rotation);
+    rotation = undefined;
+  }
+  function startRotation() {
+    stopRotation();
+    if (items.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    rotation = setInterval(() => changeReview(1), 6500);
   }
   function load() {
     const callback = `boltmindReviews_${Date.now()}`;
@@ -98,7 +141,9 @@
       clearTimeout(timer);
       state = data && data.ok === true && Array.isArray(data.reviews) ? 'loaded' : 'error';
       items = state === 'loaded' ? data.reviews : [];
+      visibleReview = Math.min(visibleReview, Math.max(0, items.length - 1));
       render();
+      startRotation();
       // Keep a no-op callback for a response arriving after the timeout.
       window[callback] = () => {};
       script.remove();
@@ -109,7 +154,20 @@
     script.src = `${REVIEW_API}?callback=${encodeURIComponent(callback)}`;
     document.body.append(script);
   }
-  document.addEventListener('boltmind:language', () => { render(); renderForm(); });
+  document.addEventListener('boltmind:language', () => { render(); renderForm(); renderCarouselLink(); });
+  function renderCarouselLink() {
+    const link = document.querySelector('#review-sheet-link');
+    if (link) link.textContent = carouselText().all + ' ↗';
+  }
+  if (previous && next) {
+    previous.addEventListener('click', () => { changeReview(-1); startRotation(); });
+    next.addEventListener('click', () => { changeReview(1); startRotation(); });
+    const showcase = document.querySelector('.review-showcase');
+    showcase.addEventListener('mouseenter', stopRotation);
+    showcase.addEventListener('mouseleave', startRotation);
+    showcase.addEventListener('focusin', stopRotation);
+    showcase.addEventListener('focusout', event => { if (!showcase.contains(event.relatedTarget)) startRotation(); });
+  }
   if (form) {
     form.addEventListener('click', event => {
       const button = event.target.closest('[data-rating]');
@@ -144,5 +202,6 @@
     });
     renderForm();
   }
+  renderCarouselLink();
   load();
 })();
