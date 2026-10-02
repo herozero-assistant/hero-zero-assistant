@@ -96,6 +96,14 @@ const checkoutText={
   de:{hotmart:'Über Hotmart kaufen',payhip:'Über Payhip kaufen',choose:'Wähle, wo du den Kauf abschließen möchtest',note:'Du wirst zum sicheren Checkout der gewählten Plattform weitergeleitet.',details:'Kaufoptionen ansehen',coupon:'Hotmart: Mit dem Code BOLTMIND10 erhältst du für begrenzte Zeit 10 % Rabatt.'},
   fr:{hotmart:'Acheter via Hotmart',payhip:'Acheter via Payhip',choose:'Choisissez où finaliser votre achat',note:'Vous serez redirigé vers le paiement sécurisé de la plateforme choisie.',details:'Voir les options d’achat',coupon:'Hotmart : utilisez le code BOLTMIND10 pour bénéficier de 10 % de réduction pendant une durée limitée.'}
 };
+const discordVideoText={
+ pt:'Quer ver o BoltMind em ação? Assista ao vídeo demonstrativo no nosso Discord.',
+ en:'Want to see BoltMind in action? Watch the demo video in our Discord.',
+ pl:'Chcesz zobaczyć BoltMind w akcji? Obejrzyj film demonstracyjny na naszym Discordzie.',
+ el:'Θέλετε να δείτε το BoltMind σε δράση; Δείτε το βίντεο επίδειξης στο Discord μας.',
+ de:'Du möchtest BoltMind in Aktion sehen? Schau dir das Demovideo auf unserem Discord an.',
+ fr:'Envie de voir BoltMind en action ? Regardez la vidéo de démonstration sur notre Discord.'
+};
 function makeCheckoutLink(provider,label){
  const link=document.createElement('a');
  link.className='button checkout-link checkout-'+provider;
@@ -122,8 +130,11 @@ function renderCheckoutOptions(){
  if(!payhip){payhip=makeCheckoutLink('payhip',copy.payhip);hero.insertBefore(payhip,hero.querySelector('.button-discord'));}
  else {const fresh=makeCheckoutLink('payhip',copy.payhip);payhip.replaceWith(fresh);payhip=fresh;}
  if(lang==='pt')hero.insertBefore(hotmart,payhip);else hero.insertBefore(payhip,hotmart);
+ let videoLink=q('.discord-video-link');
+ if(!videoLink){videoLink=element('a',undefined,'discord-video-link');videoLink.href='https://discord.gg/2xdGbxEz8';videoLink.target='_blank';videoLink.rel='noopener';hero.after(videoLink);}
+ videoLink.textContent=discordVideoText[lang]||discordVideoText.pt;
  let heroCoupon=q('.hero-coupon');
- if(!heroCoupon){heroCoupon=element('p',undefined,'hotmart-coupon hero-coupon');hero.after(heroCoupon);}
+ if(!heroCoupon){heroCoupon=element('p',undefined,'hotmart-coupon hero-coupon');videoLink.after(heroCoupon);}
  heroCoupon.textContent=copy.coupon;
  const priceCard=q('.price-card');
  let choice=priceCard.querySelector('.checkout-choice');
