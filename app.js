@@ -89,12 +89,12 @@ const checkoutLinks={
   payhip:'https://payhip.com/b/C5Js0'
 };
 const checkoutText={
-  pt:{hotmart:'Comprar pela Hotmart',payhip:'Comprar pela Payhip',choose:'Escolha onde deseja concluir a compra',note:'Você será direcionado ao checkout seguro da plataforma escolhida.',details:'Ver opções de compra'},
-  en:{hotmart:'Buy through Hotmart',payhip:'Buy through Payhip',choose:'Choose where you would like to complete your purchase',note:'You will be taken to the secure checkout of your chosen platform.',details:'See purchase options'},
-  pl:{hotmart:'Kup przez Hotmart',payhip:'Kup przez Payhip',choose:'Wybierz, gdzie chcesz sfinalizować zakup',note:'Zostaniesz przekierowany do bezpiecznej płatności wybranej platformy.',details:'Zobacz opcje zakupu'},
-  el:{hotmart:'Αγορά μέσω Hotmart',payhip:'Αγορά μέσω Payhip',choose:'Επιλέξτε πού θέλετε να ολοκληρώσετε την αγορά',note:'Θα μεταφερθείτε στην ασφαλή πληρωμή της πλατφόρμας που επιλέξατε.',details:'Δείτε επιλογές αγοράς'},
-  de:{hotmart:'Über Hotmart kaufen',payhip:'Über Payhip kaufen',choose:'Wähle, wo du den Kauf abschließen möchtest',note:'Du wirst zum sicheren Checkout der gewählten Plattform weitergeleitet.',details:'Kaufoptionen ansehen'},
-  fr:{hotmart:'Acheter via Hotmart',payhip:'Acheter via Payhip',choose:'Choisissez où finaliser votre achat',note:'Vous serez redirigé vers le paiement sécurisé de la plateforme choisie.',details:'Voir les options d’achat'}
+  pt:{hotmart:'Comprar pela Hotmart',payhip:'Comprar pela Payhip',choose:'Escolha onde deseja concluir a compra',note:'Você será direcionado ao checkout seguro da plataforma escolhida.',details:'Ver opções de compra',coupon:'Hotmart: use o cupom BOLTMIND10 para obter 10% de desconto por tempo limitado.'},
+  en:{hotmart:'Buy through Hotmart',payhip:'Buy through Payhip',choose:'Choose where you would like to complete your purchase',note:'You will be taken to the secure checkout of your chosen platform.',details:'See purchase options',coupon:'Hotmart: use code BOLTMIND10 for 10% off for a limited time.'},
+  pl:{hotmart:'Kup przez Hotmart',payhip:'Kup przez Payhip',choose:'Wybierz, gdzie chcesz sfinalizować zakup',note:'Zostaniesz przekierowany do bezpiecznej płatności wybranej platformy.',details:'Zobacz opcje zakupu',coupon:'Hotmart: użyj kodu BOLTMIND10, aby otrzymać 10% zniżki przez ograniczony czas.'},
+  el:{hotmart:'Αγορά μέσω Hotmart',payhip:'Αγορά μέσω Payhip',choose:'Επιλέξτε πού θέλετε να ολοκληρώσετε την αγορά',note:'Θα μεταφερθείτε στην ασφαλή πληρωμή της πλατφόρμας που επιλέξατε.',details:'Δείτε επιλογές αγοράς',coupon:'Hotmart: χρησιμοποιήστε τον κωδικό BOLTMIND10 για έκπτωση 10% για περιορισμένο χρονικό διάστημα.'},
+  de:{hotmart:'Über Hotmart kaufen',payhip:'Über Payhip kaufen',choose:'Wähle, wo du den Kauf abschließen möchtest',note:'Du wirst zum sicheren Checkout der gewählten Plattform weitergeleitet.',details:'Kaufoptionen ansehen',coupon:'Hotmart: Mit dem Code BOLTMIND10 erhältst du für begrenzte Zeit 10 % Rabatt.'},
+  fr:{hotmart:'Acheter via Hotmart',payhip:'Acheter via Payhip',choose:'Choisissez où finaliser votre achat',note:'Vous serez redirigé vers le paiement sécurisé de la plateforme choisie.',details:'Voir les options d’achat',coupon:'Hotmart : utilisez le code BOLTMIND10 pour bénéficier de 10 % de réduction pendant une durée limitée.'}
 };
 function makeCheckoutLink(provider,label){
  const link=document.createElement('a');
@@ -122,6 +122,9 @@ function renderCheckoutOptions(){
  if(!payhip){payhip=makeCheckoutLink('payhip',copy.payhip);hero.insertBefore(payhip,hero.querySelector('.button-discord'));}
  else {const fresh=makeCheckoutLink('payhip',copy.payhip);payhip.replaceWith(fresh);payhip=fresh;}
  if(lang==='pt')hero.insertBefore(hotmart,payhip);else hero.insertBefore(payhip,hotmart);
+ let heroCoupon=q('.hero-coupon');
+ if(!heroCoupon){heroCoupon=element('p',undefined,'hotmart-coupon hero-coupon');hero.after(heroCoupon);}
+ heroCoupon.textContent=copy.coupon;
  const priceCard=q('.price-card');
  let choice=priceCard.querySelector('.checkout-choice');
  if(!choice){
@@ -138,6 +141,9 @@ function renderCheckoutOptions(){
  const choiceHotmart=choice.querySelector('.checkout-hotmart');
  const choicePayhip=choice.querySelector('.checkout-payhip');
  if(lang==='pt')choice.insertBefore(choiceHotmart,choicePayhip);else choice.insertBefore(choicePayhip,choiceHotmart);
+ let priceCoupon=priceCard.querySelector('.hotmart-coupon');
+ if(!priceCoupon){priceCoupon=element('p',undefined,'hotmart-coupon');choice.after(priceCoupon);}
+ priceCoupon.textContent=copy.coupon;
  const paymentNote=priceCard.querySelector('.payment-note');if(paymentNote)paymentNote.textContent=copy.note;
  const dialog=q('#features-dialog');const dialogPurchase=dialog.querySelector('.purchase');
  if(dialogPurchase){
