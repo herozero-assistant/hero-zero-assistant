@@ -7,12 +7,12 @@ window.BOLTMIND_PLATFORM_COPY = {
     lifetime: 'Licença vitalícia · PC + Android',
     priceLead: 'Um pagamento para usar o BoltMind no computador e no celular Android.',
     platformLifetime: 'Inclui as versões para computador e Android (APK).',
-    priceNote: 'R$ 279,00 na Hotmart para o Brasil · US$ 54,99 na Payhip para compras em dólar. Valor final confirmado no checkout.',
-    hotmartPrice: 'R$ 279,00', payhipPrice: 'US$ 54,99',
+    priceNote: 'R$ 219,00 na Hotmart para o Brasil · US$ 41,00 na Payhip para compras em dólar. Valor final confirmado no checkout.',
+    hotmartPrice: 'R$ 219,00', payhipPrice: 'US$ 41,00',
     mobileTabs: ['Visão geral', 'Ranking', 'Missões', 'Missões especiais', 'Treinos', 'Duelos e liga', 'Esconderijo', 'Eventos', 'Inventário', 'Automações', 'Histórico'],
     desktopCaption: 'Captura real da versão para computador. A interface mostrada está em inglês.',
     mobileCaption: 'Captura real do APK para Android. A interface do aplicativo está em inglês.',
-    faqPayment: 'Não. É uma compra única com acesso vitalício às versões para computador e Android. R$ 279,00 na Hotmart para o Brasil ou US$ 54,99 na Payhip para compras em dólar.',
+    faqPayment: 'Não. É uma compra única com acesso vitalício às versões para computador e Android. R$ 219,00 na Hotmart para o Brasil ou US$ 41,00 na Payhip para compras em dólar.',
     faqOpen: 'Sim. Para executar as rotinas, mantenha o aplicativo aberto e o dispositivo conectado. No computador, configure a conexão com o Chrome.'
   },
   en: {
@@ -23,12 +23,12 @@ window.BOLTMIND_PLATFORM_COPY = {
     lifetime: 'Lifetime license · PC + Android',
     priceLead: 'One payment to use BoltMind on your PC and Android phone.',
     platformLifetime: 'Includes the desktop and Android (APK) versions.',
-    priceNote: 'R$279.00 on Hotmart for Brazil · US$54.99 on Payhip for USD purchases. Final amount confirmed at checkout.',
-    hotmartPrice: 'R$279.00', payhipPrice: 'US$54.99',
+    priceNote: 'R$219.00 on Hotmart for Brazil · US$41.00 on Payhip for USD purchases. Final amount confirmed at checkout.',
+    hotmartPrice: 'R$219.00', payhipPrice: 'US$41.00',
     mobileTabs: ['Overview', 'Ranking', 'Missions', 'Special missions', 'Training', 'Duels and league', 'Hideout', 'Events', 'Inventory', 'Automation', 'History'],
     desktopCaption: 'Real screenshot of the desktop version. The interface shown is in English.',
     mobileCaption: 'Real screenshot of the Android APK. The app interface is in English.',
-    faqPayment: 'No. One payment gives lifetime access to the desktop and Android versions: R$279.00 on Hotmart for Brazil or US$54.99 on Payhip for USD purchases.',
+    faqPayment: 'No. One payment gives lifetime access to the desktop and Android versions: R$219.00 on Hotmart for Brazil or US$41.00 on Payhip for USD purchases.',
     faqOpen: 'Yes. Keep the app open and your device connected while routines run. On desktop, configure the Chrome connection.'
   },
   pl: {
@@ -39,12 +39,12 @@ window.BOLTMIND_PLATFORM_COPY = {
     lifetime: 'Dożywotnia licencja · PC + Android',
     priceLead: 'Jedna płatność za BoltMind na komputer i telefon z Androidem.',
     platformLifetime: 'Obejmuje wersję komputerową i Android (APK).',
-    priceNote: '279,00 BRL w Hotmart dla Brazylii · 54,99 USD w Payhip dla płatności w dolarach. Ostateczna kwota w kasie.',
-    hotmartPrice: '279,00 BRL', payhipPrice: '54,99 USD',
+    priceNote: '219,00 BRL w Hotmart dla Brazylii · 41,00 USD w Payhip dla płatności w dolarach. Ostateczna kwota w kasie.',
+    hotmartPrice: '219,00 BRL', payhipPrice: '41,00 USD',
     mobileTabs: ['Przegląd', 'Ranking', 'Misje', 'Misje specjalne', 'Trening', 'Pojedynki i liga', 'Kryjówka', 'Wydarzenia', 'Ekwipunek', 'Automatyzacja', 'Historia'],
     desktopCaption: 'Prawdziwy zrzut wersji komputerowej. Widoczny interfejs jest w języku angielskim.',
     mobileCaption: 'Prawdziwy zrzut ekranu APK na Androida. Interfejs aplikacji jest w języku angielskim.',
-    faqPayment: 'Nie. Jednorazowy zakup daje dożywotni dostęp do wersji komputerowej i Android: 279,00 BRL w Hotmart dla Brazylii lub 54,99 USD w Payhip.',
+    faqPayment: 'Nie. Jednorazowy zakup daje dożywotni dostęp do wersji komputerowej i Android: 219,00 BRL w Hotmart dla Brazylii lub 41,00 USD w Payhip.',
     faqOpen: 'Tak. Podczas wykonywania zadań aplikacja musi być otwarta, a urządzenie połączone z siecią. Na komputerze skonfiguruj połączenie z Chrome.'
   },
   el: {
@@ -55,12 +55,12 @@ window.BOLTMIND_PLATFORM_COPY = {
     lifetime: 'Ισόβια άδεια · PC + Android',
     priceLead: 'Μία πληρωμή για το BoltMind σε υπολογιστή και κινητό Android.',
     platformLifetime: 'Περιλαμβάνει τις εκδόσεις υπολογιστή και Android (APK).',
-    priceNote: '279,00 BRL στο Hotmart για τη Βραζιλία · 54,99 USD στο Payhip για αγορές σε δολάρια. Το τελικό ποσό επιβεβαιώνεται στο ταμείο.',
-    hotmartPrice: '279,00 BRL', payhipPrice: '54,99 USD',
+    priceNote: '219,00 BRL στο Hotmart για τη Βραζιλία · 41,00 USD στο Payhip για αγορές σε δολάρια. Το τελικό ποσό επιβεβαιώνεται στο ταμείο.',
+    hotmartPrice: '219,00 BRL', payhipPrice: '41,00 USD',
     mobileTabs: ['Επισκόπηση', 'Κατάταξη', 'Αποστολές', 'Ειδικές αποστολές', 'Προπόνηση', 'Μονομαχίες και λίγκα', 'Κρησφύγετο', 'Εκδηλώσεις', 'Αντικείμενα', 'Αυτοματισμοί', 'Ιστορικό'],
     desktopCaption: 'Πραγματικό στιγμιότυπο της έκδοσης υπολογιστή. Η διεπαφή εμφανίζεται στα αγγλικά.',
     mobileCaption: 'Πραγματικό στιγμιότυπο του APK για Android. Η εφαρμογή εμφανίζεται στα αγγλικά.',
-    faqPayment: 'Όχι. Μία πληρωμή δίνει ισόβια πρόσβαση σε υπολογιστή και Android: 279,00 BRL στο Hotmart για τη Βραζιλία ή 54,99 USD στο Payhip.',
+    faqPayment: 'Όχι. Μία πληρωμή δίνει ισόβια πρόσβαση σε υπολογιστή και Android: 219,00 BRL στο Hotmart για τη Βραζιλία ή 41,00 USD στο Payhip.',
     faqOpen: 'Ναι. Κρατήστε την εφαρμογή ανοιχτή και τη συσκευή συνδεδεμένη όσο εκτελούνται οι λειτουργίες. Στον υπολογιστή, ρυθμίστε τη σύνδεση με το Chrome.'
   },
   de: {
@@ -71,12 +71,12 @@ window.BOLTMIND_PLATFORM_COPY = {
     lifetime: 'Lebenslange Lizenz · PC + Android',
     priceLead: 'Einmal zahlen und BoltMind auf PC und Android-Smartphone nutzen.',
     platformLifetime: 'Enthält die Desktop- und Android-Version (APK).',
-    priceNote: '279,00 BRL bei Hotmart für Brasilien · 54,99 USD bei Payhip für Zahlungen in US-Dollar. Endbetrag an der Kasse.',
-    hotmartPrice: '279,00 BRL', payhipPrice: '54,99 USD',
+    priceNote: '219,00 BRL bei Hotmart für Brasilien · 41,00 USD bei Payhip für Zahlungen in US-Dollar. Endbetrag an der Kasse.',
+    hotmartPrice: '219,00 BRL', payhipPrice: '41,00 USD',
     mobileTabs: ['Übersicht', 'Rangliste', 'Missionen', 'Spezialmissionen', 'Training', 'Duelle und Liga', 'Versteck', 'Events', 'Inventar', 'Automatisierung', 'Verlauf'],
     desktopCaption: 'Echter Screenshot der Desktop-Version. Die gezeigte Oberfläche ist auf Englisch.',
     mobileCaption: 'Echter Screenshot der Android-APK. Die App-Oberfläche ist auf Englisch.',
-    faqPayment: 'Nein. Eine einmalige Zahlung bietet lebenslangen Zugang zur Desktop- und Android-Version: 279,00 BRL bei Hotmart für Brasilien oder 54,99 USD bei Payhip.',
+    faqPayment: 'Nein. Eine einmalige Zahlung bietet lebenslangen Zugang zur Desktop- und Android-Version: 219,00 BRL bei Hotmart für Brasilien oder 41,00 USD bei Payhip.',
     faqOpen: 'Ja. Lass die App geöffnet und das Gerät verbunden, während die Abläufe laufen. Richte auf dem Computer die Chrome-Verbindung ein.'
   },
   fr: {
@@ -87,12 +87,12 @@ window.BOLTMIND_PLATFORM_COPY = {
     lifetime: 'Licence à vie · PC + Android',
     priceLead: 'Un seul paiement pour utiliser BoltMind sur PC et téléphone Android.',
     platformLifetime: 'Comprend les versions ordinateur et Android (APK).',
-    priceNote: '279,00 BRL sur Hotmart pour le Brésil · 54,99 USD sur Payhip pour les achats en dollars. Montant final confirmé au paiement.',
-    hotmartPrice: '279,00 BRL', payhipPrice: '54,99 USD',
+    priceNote: '219,00 BRL sur Hotmart pour le Brésil · 41,00 USD sur Payhip pour les achats en dollars. Montant final confirmé au paiement.',
+    hotmartPrice: '219,00 BRL', payhipPrice: '41,00 USD',
     mobileTabs: ['Vue générale', 'Classement', 'Missions', 'Missions spéciales', 'Entraînement', 'Duels et ligue', 'Repaire', 'Événements', 'Inventaire', 'Automatisation', 'Historique'],
     desktopCaption: 'Vraie capture de la version ordinateur. L’interface affichée est en anglais.',
     mobileCaption: 'Vraie capture de l’APK Android. L’interface de l’application est en anglais.',
-    faqPayment: 'Non. Un seul paiement donne accès à vie aux versions ordinateur et Android : 279,00 BRL sur Hotmart pour le Brésil ou 54,99 USD sur Payhip.',
+    faqPayment: 'Non. Un seul paiement donne accès à vie aux versions ordinateur et Android : 219,00 BRL sur Hotmart pour le Brésil ou 41,00 USD sur Payhip.',
     faqOpen: 'Oui. Gardez l’application ouverte et l’appareil connecté pendant les routines. Sur ordinateur, configurez la connexion avec Chrome.'
   }
 };
