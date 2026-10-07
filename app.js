@@ -4,7 +4,7 @@ const VISIT_API='https://script.google.com/macros/s/AKfycbwMpL8V_pOIsrP1BnEhPX7H
 const translations=window.BOLTMIND_I18N;
 const locales={pt:'pt-BR',en:'en-US',pl:'pl-PL',el:'el-GR',de:'de-DE',fr:'fr-FR'};
 let stored;try{stored=localStorage.getItem('boltmind-language');}catch{}
-let lang=translations[stored]?stored:'pt',tab=0,platform='desktop';
+let lang=translations[stored]?stored:'en',tab=0,platform='desktop';
 let pricing={BRL:219,USD:41};
 const desktopShots=['geral','ranking','missoes','missoes-especiais','treinos','duelos','esconderijo','eventos','diagnostico'];
 const androidShots=['overview','ranking','missions','special','training','duels','hideout','events','inventory','automation','history'];
