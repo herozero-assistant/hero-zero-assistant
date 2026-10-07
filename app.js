@@ -144,5 +144,9 @@ function renderCheckoutOptions(){
 document.addEventListener('boltmind:language',renderCheckoutOptions);
 render();
 trackVisit();
+const heroicDownload=q('.heroic-download');
+if(heroicDownload)heroicDownload.addEventListener('click',()=>{
+  fetch(VISIT_API+'?download=heroic-sense',{method:'GET',mode:'no-cors',cache:'no-store',keepalive:true}).catch(()=>{});
+});
  fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.BRL===219&&data.USD===41){pricing=data;showPrice();}}).catch(()=>{});
 })();
