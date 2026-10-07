@@ -51,9 +51,9 @@
 .discord-video-link:hover{background:#e5e8ff;border-color:#737cf5}
 @media(max-width:720px){.android-announcement{align-items:flex-start}.platform-tabs{display:grid;grid-template-columns:1fr 1fr}.platform-tabs button{justify-content:center;padding:9px}.gallery-shot{padding:5px}.checkout-link img{height:25px;max-width:104px}.checkout-link .checkout-link-text{font-size:14px}}
 
-/* Heroic Sense is a separate, read-only product with its own checkout. */
+/* Heroic Sense product overview and separate purchase card. */
 .heroic-section{background:linear-gradient(135deg,#f3f7fd,#fff 68%);border-block:1px solid var(--line)}
-.heroic-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:56px;align-items:center}
+.heroic-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:56px;align-items:center}
 .heroic-copy{min-width:0}.heroic-copy h2{margin:0 0 18px}.heroic-copy .section-lead{margin:0 0 20px}
 .heroic-badge{display:inline-flex;margin:0 0 18px;padding:5px 11px;border-radius:100px;background:#ddf4e9;color:#087a4b;font-size:11px;font-weight:800;letter-spacing:.08em}
 .heroic-criteria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
@@ -61,14 +61,15 @@
 .heroic-criteria span{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:9px;background:#e6f1ff;color:#1676eb;font-size:20px}
 .heroic-boundary{margin:0 0 18px;color:#385472;font-size:14px;line-height:1.55}
 .heroic-price{margin:0 0 14px;color:#173b67;font-size:14px;font-weight:800}
+.heroic-real-shot{min-width:0;margin:0;padding:8px;border:1px solid #cbdcf2;border-radius:14px;background:white;box-shadow:var(--shadow)}
+.heroic-real-shot img{width:100%;height:auto;display:block;border-radius:7px}
+.heroic-real-shot figcaption{padding:10px 4px 2px;color:var(--muted);font-size:12px}
+.sense-price-card{scroll-margin-top:105px;grid-column:1/-1;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:36px;align-items:center;padding:30px 36px;border:1px solid #cbdcf2;border-radius:20px;background:#f7faff}
+.sense-price-card h3{font-size:24px;margin:0 0 8px}
+.sense-price-intro>.eyebrow{margin-bottom:10px}.sense-price-intro>p:not(.eyebrow){margin:0 0 8px;color:#173b67;font-weight:700}
+.sense-price-intro>.sense-price-description{color:var(--muted);font-size:13px;font-weight:400;line-height:1.55}
 .heroic-checkouts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .heroic-checkouts .checkout-link{min-width:0;justify-content:flex-start}.heroic-checkouts .checkout-link-text{white-space:normal;font-size:12px}.heroic-checkouts .checkout-price{font-size:14px;font-weight:800}.heroic-checkouts .checkout-arrow{margin-left:auto}
 .heroic-checkout-note{margin:10px 0 0;color:var(--muted);font-size:12px}
-.heroic-visual{overflow:hidden;border:1px solid #2e4263;border-radius:18px;background:#121b2b;color:#f5f8ff;box-shadow:0 26px 60px #112d5733}
-.heroic-visual-top{display:flex;align-items:center;gap:12px;padding:22px 25px;border-bottom:1px solid #354866;font:800 20px Manrope,sans-serif}.heroic-visual-top img{width:38px;height:38px}.heroic-visual-top strong{color:#70b9ff}
-.heroic-visual-body{padding:26px}.heroic-visual-pill{display:inline-block;margin-bottom:20px;padding:7px 12px;border-radius:7px;background:#4565ec;font-size:11px;font-weight:800;letter-spacing:.08em}
-.heroic-visual-row{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 12px;padding:18px 15px;border:1px solid #35415b;border-radius:10px;background:#202c40;font-weight:700;font-size:14px}
-.heroic-bars{display:flex;align-items:flex-end;gap:5px;height:28px}.heroic-bars i{display:block;width:9px;border-radius:3px;background:#6886ff}.heroic-bars i:nth-child(1){height:42%}.heroic-bars i:nth-child(2){height:72%}.heroic-bars i:nth-child(3){height:100%}.heroic-bars.coins i{background:#e9b14f}
-.heroic-visual-body p{margin:18px 0 0;color:#b6c8e1;font-size:12px}
-@media(max-width:900px){.heroic-layout{grid-template-columns:1fr;gap:28px}.heroic-visual{max-width:650px}}
-@media(max-width:600px){.heroic-criteria,.heroic-checkouts{grid-template-columns:1fr}.heroic-copy h2{font-size:32px}.heroic-visual-top{font-size:17px}}
+@media(max-width:900px){.heroic-layout{grid-template-columns:1fr;gap:28px}.heroic-real-shot{max-width:760px}.sense-price-card{grid-template-columns:1fr;gap:18px}}
+@media(max-width:600px){.heroic-criteria,.heroic-checkouts{grid-template-columns:1fr}.heroic-copy h2{font-size:32px}.sense-price-card{padding:24px}}
