@@ -17,8 +17,8 @@ function showPrice(){
  q('#price-value').textContent=amount;
  document.querySelectorAll('.price-inline').forEach(el=>el.textContent=amount);
  document.querySelectorAll('.conversion-note').forEach(el=>el.textContent=t.priceNote);
- document.querySelectorAll('.hero-actions .checkout-hotmart .checkout-price, .price-card .checkout-hotmart .checkout-price').forEach(el=>el.textContent=t.hotmartPrice);
- document.querySelectorAll('.hero-actions .checkout-payhip .checkout-price, .price-card .checkout-payhip .checkout-price').forEach(el=>el.textContent=t.payhipPrice);
+ document.querySelectorAll('.price-card .checkout-hotmart .checkout-price').forEach(el=>el.textContent=t.hotmartPrice);
+ document.querySelectorAll('.price-card .checkout-payhip .checkout-price').forEach(el=>el.textContent=t.payhipPrice);
 }
 function galleryTabs(){return platform==='desktop'?window.BOLTMIND_TABS[lang]:window.BOLTMIND_PLATFORM_COPY[lang].mobileTabs;}
 function shotPath(i){const names=platform==='desktop'?desktopShots:androidShots;const ext=platform==='desktop'?'png':'jpg';return 'assets/screenshots/'+platform+'/'+names[i]+'.'+ext+'?v=20260929';}
@@ -115,21 +115,9 @@ function makeCheckoutLink(provider,label){
  const copy=element('span',undefined,'checkout-link-copy');copy.append(text,price);
  link.append(logo,copy,arrow);return link;
 }
-function setCheckoutLink(link,provider,label){
- const replacement=makeCheckoutLink(provider,label);
- replacement.classList.add('purchase');
- link.replaceWith(replacement);
- return replacement;
-}
 function renderCheckoutOptions(){
  const copy=checkoutText[lang]||checkoutText.pt;
  const hero=q('.hero-actions');
- let hotmart=hero.querySelector('.purchase');
- if(hotmart) hotmart=setCheckoutLink(hotmart,'hotmart',copy.hotmart);
- let payhip=hero.querySelector('.checkout-payhip');
- if(!payhip){payhip=makeCheckoutLink('payhip',copy.payhip);hero.insertBefore(payhip,hero.querySelector('.button-discord'));}
- else {const fresh=makeCheckoutLink('payhip',copy.payhip);payhip.replaceWith(fresh);payhip=fresh;}
- if(lang==='pt')hero.insertBefore(hotmart,payhip);else hero.insertBefore(payhip,hotmart);
  let videoLink=q('.discord-video-link');
  if(!videoLink){videoLink=element('a',undefined,'discord-video-link');videoLink.href='https://discord.gg/2xdGbxEz8';videoLink.target='_blank';videoLink.rel='noopener';hero.after(videoLink);}
  videoLink.textContent=discordVideoText[lang]||discordVideoText.pt;
@@ -150,10 +138,8 @@ function renderCheckoutOptions(){
  const choicePayhip=choice.querySelector('.checkout-payhip');
  if(lang==='pt')choice.insertBefore(choiceHotmart,choicePayhip);else choice.insertBefore(choicePayhip,choiceHotmart);
  const paymentNote=priceCard.querySelector('.payment-note');if(paymentNote)paymentNote.textContent=copy.note;
- const dialog=q('#features-dialog');const dialogPurchase=dialog.querySelector('.purchase');
- if(dialogPurchase){
-   dialogPurchase.className='button button-secondary checkout-details';dialogPurchase.href='#preco';dialogPurchase.removeAttribute('target');dialogPurchase.removeAttribute('rel');dialogPurchase.removeAttribute('data-t');dialogPurchase.textContent=copy.details;
- }
+ const dialogPurchase=q('#dialog-checkout-link');
+ dialogPurchase.textContent=copy.details;
 }
 document.addEventListener('boltmind:language',renderCheckoutOptions);
 render();

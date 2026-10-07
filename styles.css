@@ -58,7 +58,7 @@
 .heroic-badge{display:inline-flex;margin:0 0 18px;padding:5px 11px;border-radius:100px;background:#ddf4e9;color:#087a4b;font-size:11px;font-weight:800;letter-spacing:.08em}
 .heroic-criteria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}
 .heroic-criteria>div{display:flex;align-items:center;gap:10px;padding:15px;border:1px solid #cbdcf2;border-radius:11px;background:white;font-size:14px}
-.heroic-criteria span{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:9px;background:#e6f1ff;color:#1676eb;font-size:20px}
+.heroic-criteria img{display:block;flex:none;width:32px;height:32px;object-fit:contain}
 .heroic-boundary{margin:0 0 18px;color:#385472;font-size:14px;line-height:1.55}
 .heroic-price{margin:0 0 14px;color:#173b67;font-size:14px;font-weight:800}
 .heroic-real-shot{min-width:0;margin:0;padding:8px;border:1px solid #cbdcf2;border-radius:14px;background:white;box-shadow:var(--shadow)}
@@ -73,3 +73,13 @@
 .heroic-checkout-note{margin:10px 0 0;color:var(--muted);font-size:12px}
 @media(max-width:900px){.heroic-layout{grid-template-columns:1fr;gap:28px}.heroic-real-shot{max-width:760px}.sense-price-card{grid-template-columns:1fr;gap:18px}}
 @media(max-width:600px){.heroic-criteria,.heroic-checkouts{grid-template-columns:1fr}.heroic-copy h2{font-size:32px}.sense-price-card{padding:24px}}
+
+/* Purchase options follow the real Bot screenshots. */
+.hero-actions{display:flex;max-width:592px}
+.hero-actions .button-discord{width:min(100%,340px);margin:0 auto}
+#sense-preco{margin:30px auto 0;scroll-margin-top:105px}
+.gallery-pricing{width:min(100%,900px);margin:35px auto 0;gap:30px;scroll-margin-top:105px}
+.gallery-pricing .section-lead{font-size:14px;margin-bottom:18px}
+.gallery-pricing .benefits{margin:18px 0}
+.gallery-pricing .price-card{padding:28px}
+@media(max-width:720px){.gallery-pricing{margin-top:28px}.gallery-pricing .price-card{padding:24px}}
