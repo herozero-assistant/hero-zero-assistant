@@ -17,8 +17,8 @@ function showPrice(){
  q('#price-value').textContent=amount;
  document.querySelectorAll('.price-inline').forEach(el=>el.textContent=amount);
  document.querySelectorAll('.conversion-note').forEach(el=>el.textContent=t.priceNote);
- document.querySelectorAll('.checkout-hotmart .checkout-price').forEach(el=>el.textContent=t.hotmartPrice);
- document.querySelectorAll('.checkout-payhip .checkout-price').forEach(el=>el.textContent=t.payhipPrice);
+ document.querySelectorAll('.hero-actions .checkout-hotmart .checkout-price, .price-card .checkout-hotmart .checkout-price').forEach(el=>el.textContent=t.hotmartPrice);
+ document.querySelectorAll('.hero-actions .checkout-payhip .checkout-price, .price-card .checkout-payhip .checkout-price').forEach(el=>el.textContent=t.payhipPrice);
 }
 function galleryTabs(){return platform==='desktop'?window.BOLTMIND_TABS[lang]:window.BOLTMIND_PLATFORM_COPY[lang].mobileTabs;}
 function shotPath(i){const names=platform==='desktop'?desktopShots:androidShots;const ext=platform==='desktop'?'png':'jpg';return 'assets/screenshots/'+platform+'/'+names[i]+'.'+ext+'?v=20260929';}
@@ -58,7 +58,7 @@ function render(){
  const t=translations[lang],copy=window.BOLTMIND_PLATFORM_COPY[lang];
  document.documentElement.lang=locales[lang];
  document.title='BoltMind - Hero Zero | '+t.lifetime;
- q('meta[name="description"]').content=t.lead+' '+copy.platformLifetime;
+ q('meta[name="description"]').content=t.lead+' '+copy.platformLifetime+' '+t.senseLead;
  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=t[el.dataset.t]||el.dataset.t);
  document.querySelectorAll('[data-platform]').forEach(el=>el.textContent=copy[el.dataset.platform]||'');
  q('#language').value=lang;
