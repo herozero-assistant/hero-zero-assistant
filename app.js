@@ -5,7 +5,7 @@ const translations=window.BOLTMIND_I18N;
 const locales={pt:'pt-BR',en:'en-US',pl:'pl-PL',el:'el-GR',de:'de-DE',fr:'fr-FR'};
 let stored;try{stored=localStorage.getItem('boltmind-language');}catch{}
 let lang=translations[stored]?stored:'en',tab=0,platform='desktop';
-let pricing={BRL:219,USD:41};
+let pricing={BRL:147,USD:29};
 const desktopShots=['geral','ranking','missoes','missoes-especiais','treinos','duelos','esconderijo','eventos','diagnostico'];
 const androidShots=['overview','ranking','missions','special','training','duels','hideout','events','inventory','automation','history'];
 const q=s=>document.querySelector(s);
@@ -148,5 +148,5 @@ const heroicDownload=q('.heroic-download');
 if(heroicDownload)heroicDownload.addEventListener('click',()=>{
   fetch(VISIT_API+'?download=heroic-sense',{method:'GET',mode:'no-cors',cache:'no-store',keepalive:true}).catch(()=>{});
 });
- fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.BRL===219&&data.USD===41){pricing=data;showPrice();}}).catch(()=>{});
+ fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.BRL===147&&data.USD===29){pricing=data;showPrice();}}).catch(()=>{});
 })();
