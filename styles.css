@@ -84,6 +84,7 @@
 
 
 
+
 /* BoltMind 4 brand: dark panel look, logo gradient, purchase first. */
 :root{--bm-bg:#0b0d12;--bm-panel:#12151c;--bm-raise:#181c26;--bm-line:#222734;--bm-text:#e8eaf0;--bm-soft:#c9cfdb;--bm-muted:#9aa3b5;--bm-cyan:#42c9ef;--bm-blue:#1676eb;--bm-teal:#28c8ba;--bm-grad:linear-gradient(120deg,#42c9ef,#1676eb 55%,#28c8ba)}
 .topbar{background:#0b0d12e8;border-bottom-color:#1c2130}
@@ -216,3 +217,55 @@ body{background:var(--nv-bg);color:var(--nv-text)}
 .heroic-layout{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
 .heroic-real-shot{padding:6px;background:#0f1218;border-color:#2a3142}
 @media(max-width:720px){.heroic-actions .button{width:100%}}
+/* Heroic Sense install guide as an in-site dialog. */
+#sense-tutorial{width:min(900px,calc(100% - 24px));max-height:90vh;padding:0 30px 30px;border:1px solid #233b5c;border-radius:20px;background:radial-gradient(700px 360px at 85% 0%,#1676eb2e,transparent 70%),#0d1a2e;color:#e6edf7;box-shadow:0 30px 90px #000c}
+#sense-tutorial::backdrop{background:#050a14cc;backdrop-filter:blur(6px)}
+#sense-tutorial .close-dialog{position:sticky;top:14px;margin:14px -14px 0 auto;background:#14263f;border-color:#2a3a55;color:#fff}
+#sense-tutorial .tutorial-head{margin-top:-20px}
+#sense-tutorial .eyebrow{color:#42c9ef}
+#sense-tutorial h2{margin:0 0 10px;color:#fff;font-size:clamp(26px,3.4vw,38px)}
+#sense-tutorial .lead{margin:0 0 16px;color:#a7b5cb;font-size:16.5px}
+#sense-tutorial .chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px;padding:0;list-style:none}
+#sense-tutorial .chips li{padding:5px 11px;border:1px solid #233b5c;border-radius:99px;background:#102139;color:#c9cfdb;font-size:12.5px;font-weight:700}
+#sense-tutorial .steps{display:grid;gap:12px;margin:22px 0 0;padding:0;list-style:none;counter-reset:step}
+#sense-tutorial .step{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:18px;border:1px solid #233b5c;border-radius:14px;background:#14263f}
+#sense-tutorial .step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:linear-gradient(120deg,#42c9ef,#1676eb 55%,#28c8ba);color:#fff;font:800 17px Manrope,sans-serif}
+#sense-tutorial .step h3{margin:4px 0 4px;color:#fff;font-size:18px}
+#sense-tutorial .step p{margin:0 0 10px;color:#a7b5cb;font-size:14.5px}
+#sense-tutorial .step p:last-child{margin-bottom:0}
+#sense-tutorial .step .button{min-height:44px;padding:10px 18px;font-size:14px}
+#sense-tutorial .copy-row{display:flex;flex-wrap:wrap;gap:8px}
+#sense-tutorial .copy{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #2a3a55;border-radius:9px;background:#0d1a2e;color:#e8eaf0;font:600 14px Consolas,monospace;cursor:pointer}
+#sense-tutorial .copy:hover{border-color:#42c9ef}
+#sense-tutorial .copy span{color:#42c9ef;font:700 11px 'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.06em}
+#sense-tutorial .copied{min-height:0;margin:8px 0 0;color:#9fe8c3;font-size:13px;font-weight:700}
+#sense-tutorial .copied:empty{display:none}
+#sense-tutorial .mock{max-width:540px;border:1px solid #2a3142;border-radius:11px;background:#1f2127;overflow:hidden}
+#sense-tutorial .mock-bar{display:flex;align-items:center;gap:10px;padding:9px 13px;background:#2a2d34;color:#e8eaf0;font-size:13px}
+#sense-tutorial .toggle{margin-left:auto;display:inline-flex;align-items:center;gap:8px}
+#sense-tutorial .switch{position:relative;width:34px;height:18px;border-radius:99px;background:#8ab4f8}
+#sense-tutorial .switch:after{content:"";position:absolute;right:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#1a73e8}
+#sense-tutorial .ring{outline:3px solid #ffb547;outline-offset:3px}
+#sense-tutorial .mock-row{display:flex;flex-wrap:wrap;gap:8px;padding:11px 13px}
+#sense-tutorial .mock-btn{padding:5px 11px;border:1px solid #5f6368;border-radius:6px;color:#8ab4f8;font-size:13px;font-weight:600}
+#sense-tutorial .mock-btn.hl{border-color:#ffb547;box-shadow:0 0 0 3px #ffb54755;color:#ffd27a}
+#sense-tutorial .folder{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:11px 13px;color:#e8eaf0;font-size:13px}
+#sense-tutorial .folder i{width:22px;height:16px;border-radius:3px;background:#f2c14e}
+#sense-tutorial .folder em{margin-left:auto;color:#9aa3b5;font-style:normal}
+#sense-tutorial .shot{margin:4px 0 0;border:1px solid #2a3142;border-radius:12px;overflow:hidden;background:#0f1218}
+#sense-tutorial .tutorial-zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+#sense-tutorial .shot img{display:block;width:100%;height:auto}
+#sense-tutorial .shot figcaption{padding:9px 13px;color:#a7b5cb;font-size:13px}
+#sense-tutorial .help-eyebrow{margin-top:28px}
+#sense-tutorial .help-title{margin:0 0 12px;color:#fff;font-size:22px}
+#sense-tutorial .help{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+#sense-tutorial .help article{padding:16px;border:1px solid #233b5c;border-radius:12px;background:#14263f}
+#sense-tutorial .help h4{margin:0 0 5px;color:#fff;font:800 15px Manrope,sans-serif}
+#sense-tutorial .help p{margin:0;color:#a7b5cb;font-size:14px}
+#sense-tutorial .safe,#sense-tutorial .risk{display:flex;gap:12px;margin-top:14px;padding:14px 16px;border-radius:12px;font-size:14px}
+#sense-tutorial .safe{border:1px solid #2f5a44;background:#13211a;color:#bff0d6}
+#sense-tutorial .risk{border:1px solid #6b5420;border-left:4px solid #ffb547;background:#2a2312;color:#f2e2bd}
+#sense-tutorial .safe strong,#sense-tutorial .risk strong{color:#fff}
+#sense-tutorial .tutorial-foot{display:flex;justify-content:center;margin-top:20px}
+#image-dialog{z-index:2}
+@media(max-width:720px){#sense-tutorial{padding:0 16px 20px}#sense-tutorial .step{grid-template-columns:1fr;padding:15px}#sense-tutorial .help{grid-template-columns:1fr}#sense-tutorial .close-dialog{margin-right:-4px}}
