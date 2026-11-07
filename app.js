@@ -5,8 +5,8 @@ const translations=window.BOLTMIND_I18N;
 const locales={pt:'pt-BR',en:'en-US',pl:'pl-PL',el:'el-GR',de:'de-DE',fr:'fr-FR'};
 let stored;try{stored=localStorage.getItem('boltmind-language');}catch{}
 let lang=translations[stored]?stored:'en',tab=0,platform='desktop';
-let pricing={BRL:147,USD:29};
-const desktopShots=['geral','ranking','missoes','missoes-especiais','treinos','duelos','esconderijo','eventos','diagnostico'];
+let pricing={BRL:189,USD:38};
+const desktopShots=['automacoes','personagem','geral','ranking','missoes','missoes-especiais','treinos','duelos','esconderijo','comodos','eventos','diagnostico'];
 const androidShots=['overview','ranking','missions','special','training','duels','hideout','events','inventory','automation','history'];
 const q=s=>document.querySelector(s);
 function element(tag,text,cls){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;}
@@ -21,11 +21,11 @@ function showPrice(){
  document.querySelectorAll('.price-card .checkout-payhip .checkout-price').forEach(el=>el.textContent=t.payhipPrice);
 }
 function galleryTabs(){return platform==='desktop'?window.BOLTMIND_TABS[lang]:window.BOLTMIND_PLATFORM_COPY[lang].mobileTabs;}
-function shotPath(i){const names=platform==='desktop'?desktopShots:androidShots;const ext=platform==='desktop'?'png':'jpg';return 'assets/screenshots/'+platform+'/'+names[i]+'.'+ext+'?v=20260929';}
+function shotPath(i){const names=platform==='desktop'?desktopShots:androidShots;const ext=platform==='desktop'?'png':'jpg';return 'assets/screenshots/'+platform+'/'+names[i]+'.'+ext+'?v='+(platform==='desktop'?'20261107':'20260929');}
 function changeTab(i){
  tab=i;
  const img=q('#gallery-image');img.src=shotPath(i);img.alt=(platform==='desktop'?window.BOLTMIND_PLATFORM_COPY[lang].pc:window.BOLTMIND_PLATFORM_COPY[lang].android)+' - '+galleryTabs()[i];
- img.width=platform==='desktop'?1296:1600;img.height=platform==='desktop'?966:738;
+ img.width=platform==='desktop'?1440:1600;img.height=platform==='desktop'?960:738;
  q('#gallery-caption').textContent=platform==='android'?window.BOLTMIND_PLATFORM_COPY[lang].mobileCaption:window.BOLTMIND_PLATFORM_COPY[lang].desktopCaption;
  document.querySelectorAll('#screenshot-tabs button').forEach((b,n)=>{b.setAttribute('aria-selected',String(n===i));b.tabIndex=n===i?0:-1;});
 }
@@ -148,5 +148,5 @@ const heroicDownload=q('.heroic-download');
 if(heroicDownload)heroicDownload.addEventListener('click',()=>{
   fetch(VISIT_API+'?download=heroic-sense',{method:'GET',mode:'no-cors',cache:'no-store',keepalive:true}).catch(()=>{});
 });
- fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.BRL===147&&data.USD===29){pricing=data;showPrice();}}).catch(()=>{});
+ fetch('pricing.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error();return r.json();}).then(data=>{if(data.BRL===189&&data.USD===38){pricing=data;showPrice();}}).catch(()=>{});
 })();

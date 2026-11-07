@@ -78,3 +78,130 @@
 .gallery-pricing .benefits{margin:18px 0}
 .gallery-pricing .price-card{padding:28px}
 @media(max-width:720px){.gallery-pricing{margin-top:28px}.gallery-pricing .price-card{padding:24px}}
+
+
+
+
+
+/* BoltMind 4 brand: dark panel look, logo gradient, purchase first. */
+:root{--bm-bg:#0b0d12;--bm-panel:#12151c;--bm-raise:#181c26;--bm-line:#222734;--bm-text:#e8eaf0;--bm-soft:#c9cfdb;--bm-muted:#9aa3b5;--bm-cyan:#42c9ef;--bm-blue:#1676eb;--bm-teal:#28c8ba;--bm-grad:linear-gradient(120deg,#42c9ef,#1676eb 55%,#28c8ba)}
+.topbar{background:#0b0d12e8;border-bottom-color:#1c2130}
+.topbar .brand,.topbar .brand-name{color:#fff}.topbar .brand-name strong{background:var(--bm-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.topbar .nav-links a{color:var(--bm-muted)}.topbar .nav-links a:hover{color:#fff}
+.topbar .language select{background:var(--bm-panel);border-color:var(--bm-line);color:var(--bm-text)}
+.topbar .button-secondary{background:transparent;border-color:#2b3242;color:var(--bm-text)}.topbar .button-secondary:hover{background:var(--bm-raise)}
+.button-primary{background:var(--bm-grad);background-size:140% 100%;border:0;color:#fff;box-shadow:0 8px 26px #1676eb4d;transition:background-position .3s,box-shadow .2s,transform .2s}
+.button-primary:hover{background:var(--bm-grad);background-size:140% 100%;background-position:100% 0;box-shadow:0 12px 34px #1676eb70;transform:translateY(-1px)}
+.nav-buy{min-height:42px;padding:9px 18px;font-size:14px}
+.hero-band{position:relative;overflow:hidden;background:radial-gradient(900px 520px at 78% 38%,#1676eb38,transparent 70%),radial-gradient(700px 420px at 8% 0%,#28c8ba1f,transparent 70%),var(--bm-bg);color:var(--bm-text)}
+.hero-band:after{position:absolute;inset:auto 0 0;height:1px;content:"";background:var(--bm-grad);opacity:.5}
+.hero-band .hero{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:56px;padding:76px 0 84px}
+.hero-band .hero:before{display:none}
+.hero-band .eyebrow{color:var(--bm-cyan)}
+.hero-band h1{color:#fff}
+.hero-band .hero-lead{color:var(--bm-soft)}
+.hero-pill{display:inline-flex;align-items:center;gap:10px;max-width:100%;margin:0 0 22px;padding:7px 14px 7px 7px;border:1px solid #2a3a55;border-radius:99px;background:#121a29;color:var(--bm-soft);font-size:13px;line-height:1.4;text-decoration:none;transition:border-color .2s}
+.hero-pill:hover{border-color:var(--bm-cyan);color:#fff}
+.hero-pill .new-badge{background:var(--bm-grad);color:#fff;border-radius:99px;padding:4px 9px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.hero-chips li{padding:6px 12px;border:1px solid var(--bm-line);border-radius:99px;background:var(--bm-panel);color:var(--bm-soft);font-size:13px;font-weight:700}
+.hero-chips li:before{content:"";display:inline-block;width:7px;height:7px;margin-right:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84aa;vertical-align:1px}
+.hero-band .hero-actions{display:flex;flex-wrap:wrap;gap:12px;max-width:none}
+.hero-band .hero-actions .button{min-height:56px;padding:15px 24px;font-size:16px}
+.hero-band .hero-actions .button-discord{width:auto;margin:0;background:#1d2233;border:1px solid #333c56;box-shadow:none}.hero-band .hero-actions .button-discord:hover{background:#262c42}
+.hero-buy-price{padding:3px 10px;border-radius:7px;background:#ffffff26;font-weight:800}
+.hero-buy-price:empty{display:none}
+.hero-band .trust-line{max-width:600px;margin:18px 0 6px;padding:0;border:0;background:none;color:var(--bm-muted);font-size:13px;font-weight:600}
+.hero-band .text-button{color:var(--bm-cyan);border-color:#42c9ef55}
+.hero-band .discord-video-link{max-width:600px;background:#161a2b;border-color:#2e3456;color:#c3c8ff;box-shadow:none}.hero-band .discord-video-link:hover{background:#1c2138}
+.hero-product{position:relative;margin:0;min-width:0}
+.hero-product:before{position:absolute;inset:8% 4% -6%;z-index:0;content:"";border-radius:30px;background:var(--bm-grad);filter:blur(60px);opacity:.33}
+.hero-window{position:relative;z-index:1;overflow:hidden;border:1px solid #2a3142;border-radius:14px;background:var(--bm-panel);box-shadow:0 30px 80px #000a,0 0 0 1px #ffffff08 inset;transform:perspective(1600px) rotateY(-6deg) rotateX(2deg);transition:transform .5s}
+.hero-product:hover .hero-window{transform:none}
+.hero-window-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--bm-line);background:#0f1218}
+.hero-window-bar i{width:10px;height:10px;border-radius:50%;background:#2a303d}.hero-window-bar i:first-child{background:#ff6b6b}.hero-window-bar i:nth-child(2){background:#ffb547}.hero-window-bar i:nth-child(3){background:#3ddc84}
+.hero-window-bar span{margin-left:8px;color:var(--bm-muted);font-size:12px;font-weight:700}
+.hero-window .zoom-shot img{border-radius:0}
+.hero-mark{position:absolute;z-index:2;left:-26px;bottom:-26px;width:88px;height:88px;padding:12px;border:1px solid #2a3142;border-radius:22px;background:#0f1218;box-shadow:0 18px 40px #000a;animation:brandFloat 5.4s ease-in-out infinite}
+.value-strip{background:var(--bm-panel);border-color:var(--bm-line)}.value-strip .shell{color:var(--bm-soft)}
+.value-strip .shell span:before{content:"";display:inline-block;width:6px;height:6px;margin-right:9px;border-radius:50%;background:var(--bm-grad);vertical-align:2px}
+#recursos .eyebrow{background:var(--bm-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.feature{position:relative;transition:transform .2s,box-shadow .2s,border-color .2s}
+.feature:hover{transform:translateY(-3px);border-color:#b9d6fb;box-shadow:0 18px 40px #18315614}
+.feature-number{background:var(--bm-grad);color:#fff}
+.feature:nth-child(-n+2){border-color:#9cc8fa;background:linear-gradient(160deg,#eef6ff,#fff 60%)}
+.screenshot-section{background:radial-gradient(800px 400px at 50% 0%,#1676eb26,transparent 70%),var(--bm-bg);border-color:var(--bm-line);color:var(--bm-text)}
+.screenshot-section h2{color:#fff}.screenshot-section .eyebrow{color:var(--bm-cyan)}.screenshot-section .section-lead{color:var(--bm-soft)}
+.screenshot-section .platform-tabs button{background:var(--bm-panel);border-color:var(--bm-line);color:var(--bm-soft)}
+.screenshot-section .platform-tabs button[aria-pressed=true]{border-color:var(--bm-cyan);background:#12233a;color:#fff;box-shadow:0 0 0 2px #42c9ef22}
+.screenshot-section .tab-list button{background:var(--bm-panel);border-color:var(--bm-line);color:var(--bm-soft)}
+.screenshot-section .tab-list button:hover{border-color:#3a4560;color:#fff}
+.screenshot-section .tab-list [aria-selected=true]{background:var(--bm-grad);border-color:transparent;color:#fff}
+.screenshot-section .gallery-shot{max-width:1000px;padding:0;overflow:hidden;border:1px solid #2a3142;background:var(--bm-panel);box-shadow:0 30px 80px #0008,0 0 70px #1676eb22}
+.screenshot-section .gallery-shot img{border-radius:0}
+.screenshot-section .gallery-caption{color:var(--bm-muted)}
+.gallery-pricing{width:min(100%,1000px);margin-top:60px;padding:36px;border:1px solid var(--bm-line);border-radius:22px;background:linear-gradient(150deg,#141a26,#0f1218)}
+.gallery-pricing .benefits li{color:var(--bm-soft)}.gallery-pricing .benefits li:before{color:#3ddc84}
+.gallery-pricing .price-card{position:relative;border:0;background:#fff;box-shadow:0 30px 70px #0009,0 0 0 2px #42c9ef55}
+.gallery-pricing .price-card:before{position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:5px 14px;border-radius:99px;background:var(--bm-grad);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;white-space:nowrap;content:"BOLTMIND 4"}
+.gallery-pricing #price-value{background:linear-gradient(120deg,#0b4fb3,#1676eb 55%,#159c90);-webkit-background-clip:text;background-clip:text;color:transparent}
+footer{background:var(--bm-bg);border-color:var(--bm-line)}footer .brand,footer .brand-name{color:#fff}footer p{color:var(--bm-muted)}footer a:not(.brand){color:var(--bm-cyan)}
+@media(max-width:1000px){.hero-band .hero{grid-template-columns:1fr;gap:44px;padding:56px 0 64px}.hero-window{transform:none}.hero-mark{left:auto;right:-8px;bottom:-22px;width:70px;height:70px}}
+@media(max-width:720px){.nav-actions>.button-secondary{display:none}.nav-actions>.nav-buy{display:inline-flex;min-height:40px;padding:8px 13px;font-size:13px}.hero-band .hero-actions{flex-direction:column}.hero-band .hero-actions .button{width:100%}.hero-chips li{font-size:12px}.gallery-pricing{padding:22px 16px}.hero-mark{display:none}}
+@media(prefers-reduced-motion:reduce){.hero-mark{animation:none}.hero-window{transition:none}}
+.nav{gap:22px}.nav-links{gap:20px}.nav-links a{white-space:nowrap}.nav-links a[href="#preco"]{display:none}.nav-actions .button{white-space:nowrap}
+@media(max-width:1240px){.nav-links a[href="#heroic-sense"]{display:none}}
+.gallery-pricing .price-card{color:var(--ink)}.gallery-pricing .price-card .plan-name{color:var(--ink)}
+.gallery-pricing{align-items:start}.gallery-pricing>div:first-child{padding-top:24px}
+/* Navy instead of white, from the logo's dark stroke (#102139). */
+:root{--nv-bg:#0d1a2e;--nv-bg2:#102139;--nv-card:#14263f;--nv-card2:#182d4a;--nv-line:#233b5c;--nv-text:#e6edf7;--nv-muted:#a7b5cb}
+body{background:var(--nv-bg);color:var(--nv-text)}
+.section h2,.section h3,.faq h2{color:#fff}
+.section-lead{color:var(--nv-muted)}
+.value-strip{background:var(--nv-bg2);border-color:var(--nv-line)}
+.feature{background:var(--nv-card);border-color:var(--nv-line)}
+.feature p{color:var(--nv-muted)}
+.feature:hover{border-color:#3d6aa3;box-shadow:0 18px 40px #0006}
+.feature:nth-child(-n+2){border-color:#2f6fb8;background:linear-gradient(160deg,#18365c,var(--nv-card) 65%)}
+.reviews-section{background:var(--nv-bg2);border-color:var(--nv-line)}
+.reviews-section .eyebrow,.heroic-section .eyebrow,.support-section .eyebrow{color:var(--bm-cyan)}
+.review-card{background:var(--nv-card);border-color:var(--nv-line);box-shadow:0 12px 30px #0004}
+.review-card strong{color:#fff}.review-card p{color:var(--nv-muted)}
+.review-state,#review-position{color:var(--nv-muted)}
+.review-nav{background:var(--nv-card);border:1px solid var(--nv-line);color:#fff}
+.review-form{background:var(--nv-card);border-color:var(--nv-line);box-shadow:0 14px 34px #0004}
+.review-form h3{color:#fff}.review-form>p{color:var(--nv-muted)}
+.review-form label,.review-rating legend{color:var(--nv-text)}
+.review-form input,.review-form textarea{background:var(--nv-bg);border-color:var(--nv-line);color:#fff}
+.review-form input::placeholder,.review-form textarea::placeholder{color:#7387a6}
+.review-form input:focus,.review-form textarea:focus{outline-color:#1e3f6b;border-color:var(--bm-cyan)}
+.review-stars button{color:#36507a}
+.review-form-status.error{color:#ff8a80}.review-form-status.success{color:#5be3a0}
+.heroic-section{background:linear-gradient(135deg,var(--nv-bg),var(--nv-bg2) 70%);border-color:var(--nv-line)}
+.heroic-criteria>div{background:var(--nv-card);border-color:var(--nv-line);color:var(--nv-text)}
+.heroic-boundary{color:var(--nv-muted)}.heroic-download-note{color:var(--nv-muted)}
+.heroic-badge{background:#0f3a2a;color:#5be3a0}.heroic-free{background:#0f3a2a;color:#5be3a0}
+.heroic-real-shot{background:var(--nv-card);border-color:var(--nv-line)}.heroic-real-shot figcaption{color:var(--nv-muted)}
+.support-section{background:#0a1526;border-top:1px solid var(--nv-line)}
+.support-cards article{background:var(--nv-card);border-color:var(--nv-line)}
+.faq details{border-color:var(--nv-line)}.faq summary{color:#fff}.faq details p{color:var(--nv-muted)}
+.text-button{color:var(--bm-cyan);border-color:#42c9ef55}
+#features-dialog,#support-dialog{color:var(--ink)}#features-dialog h2,#features-dialog h3,#support-dialog h2{color:var(--ink)}
+#features-dialog .feature{background:#fff;border-color:var(--line)}#features-dialog .feature p{color:var(--muted)}#features-dialog .feature:nth-child(-n+2){background:linear-gradient(160deg,#eef6ff,#fff 60%);border-color:#9cc8fa}
+/* Checkout buttons: logo kept at its own proportion in a fixed box. */
+.price-card .checkout-choice{gap:12px}
+.price-card .checkout-link{display:grid;grid-template-columns:108px minmax(0,1fr) auto;align-items:center;gap:0;min-height:66px;padding:0;border:1px solid #d5deeb;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 4px 14px #1831560f;transition:transform .18s,box-shadow .18s,border-color .18s}
+.price-card .checkout-link:hover{transform:translateY(-1px);box-shadow:0 10px 24px #1831561f}
+.price-card .checkout-link img{box-sizing:content-box;width:84px;height:24px;max-width:none;padding:0 12px;object-fit:contain;object-position:center;align-self:stretch;border-right:1px solid #e6ecf4;background:#f8fafd}
+.price-card .checkout-link-copy{padding:10px 14px;gap:2px}
+.price-card .checkout-link .checkout-link-text{color:#142139;font-size:14px;font-weight:800;white-space:normal}
+.price-card .checkout-link .checkout-price{color:#1676eb;font-size:15px;font-weight:800}
+.price-card .checkout-link .checkout-arrow{padding:0 16px;color:#8a97ab;font-size:16px}
+.price-card .checkout-hotmart{border-color:#f6c4b0}.price-card .checkout-hotmart:hover{border-color:#f4511e}.price-card .checkout-hotmart .checkout-price{color:#d9461b}
+.price-card .checkout-payhip{border-color:#cdd8fb}.price-card .checkout-payhip:hover{border-color:#5b74f0}.price-card .checkout-payhip .checkout-price{color:#4b62d8}
+/* Responsible use notice. */
+.risk-notice{display:flex;gap:12px;max-width:520px;margin:24px 0 0;padding:14px 16px;border:1px solid #6b5420;border-left:4px solid #ffb547;border-radius:12px;background:#2a2312;color:#f2e2bd;font-size:13px;line-height:1.55}
+.risk-notice:before{content:"!";display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:#ffb547;color:#2a2312;font-weight:900;font-size:14px}
+.risk-notice strong{display:block;margin-bottom:2px;color:#ffd27a;font-size:14px}
+.price-card .checkout-link img{height:auto;width:80px;padding:0 14px;align-self:stretch}
+.risk-notice{margin:24px 0 22px}
