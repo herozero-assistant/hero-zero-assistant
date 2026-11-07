@@ -83,6 +83,7 @@
 
 
 
+
 /* BoltMind 4 brand: dark panel look, logo gradient, purchase first. */
 :root{--bm-bg:#0b0d12;--bm-panel:#12151c;--bm-raise:#181c26;--bm-line:#222734;--bm-text:#e8eaf0;--bm-soft:#c9cfdb;--bm-muted:#9aa3b5;--bm-cyan:#42c9ef;--bm-blue:#1676eb;--bm-teal:#28c8ba;--bm-grad:linear-gradient(120deg,#42c9ef,#1676eb 55%,#28c8ba)}
 .topbar{background:#0b0d12e8;border-bottom-color:#1c2130}
@@ -205,3 +206,13 @@ body{background:var(--nv-bg);color:var(--nv-text)}
 .risk-notice strong{display:block;margin-bottom:2px;color:#ffd27a;font-size:14px}
 .price-card .checkout-link img{height:auto;width:80px;padding:0 14px;align-self:stretch}
 .risk-notice{margin:24px 0 22px}
+/* Heroic Sense extension: download + tutorial (2026-11-07). */
+.heroic-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.heroic-actions .heroic-download{width:auto}
+.heroic-tutorial{border:1px solid #2a3a55;background:#121a29;color:#e8eaf0}
+.heroic-tutorial:hover{border-color:#42c9ef;background:#16223a}
+.heroic-windows{display:inline-block;margin-top:8px;color:#a7b5cb;font-size:13px;text-decoration:underline;text-underline-offset:3px}
+.heroic-windows:hover{color:#42c9ef}
+.heroic-layout{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+.heroic-real-shot{padding:6px;background:#0f1218;border-color:#2a3142}
+@media(max-width:720px){.heroic-actions .button{width:100%}}
